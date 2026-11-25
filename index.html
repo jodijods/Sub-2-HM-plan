@@ -19,6 +19,7 @@
       --tint-peach: #fff7ed;
       --tint-sky: #f0f9ff;
       --tint-sage: #f2f8f5;
+      --tint-amber: #fefce8;
       --text: #18181b;
       --text-soft: #52525b;
       --muted: #a1a1aa;
@@ -41,7 +42,8 @@
     }
     body { padding-bottom: 102px; }
     .wrap { max-width: 520px; margin: 0 auto; padding: 18px 16px; }
-    /* Minimalist Editorial Header (No Heavy Box) */
+
+    /* Minimalist Editorial Header */
     .top-header {
       display: flex;
       justify-content: space-between;
@@ -86,6 +88,7 @@
       box-shadow: var(--shadow-soft);
       white-space: nowrap;
     }
+
     /* Soft Organic Hero Summary Card with Progress Ring */
     .hero-card {
       background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
@@ -111,6 +114,12 @@
       color: var(--text-soft);
       border: 1px solid var(--border);
     }
+    .soft-chip.adjusted {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border-color: rgba(13, 148, 136, 0.25);
+    }
+
     /* SVG Ring */
     .ring-box { position: relative; width: 74px; height: 74px; flex-shrink: 0; }
     .ring-box svg { transform: rotate(-90deg); width: 74px; height: 74px; }
@@ -122,6 +131,7 @@
       font-size: 14px; font-weight: 800; color: var(--text);
     }
     .ring-label span { font-size: 9.5px; font-weight: 600; color: var(--text-soft); }
+
     /* Page Swipe Bar */
     .swipe-bar {
       display: flex; justify-content: space-between; align-items: center;
@@ -131,12 +141,53 @@
     .swipe-dots { display: flex; gap: 6px; }
     .s-dot { width: 6px; height: 6px; border-radius: 999px; background: #d4d4d8; transition: 0.25s; }
     .s-dot.active { width: 20px; background: var(--accent); }
+
     /* Pages */
     .viewport { touch-action: pan-y; }
     .page { display: none; animation: floatIn 0.22s ease-out; }
     .page.active { display: block; }
     @keyframes floatIn { from { opacity: 0.4; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-    /* Week Scroller & Soft Switcher */
+
+    /* Adaptive Pace Bar on Schedule */
+    .adapt-bar {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .adapt-meta .a-title { font-size: 12.5px; font-weight: 800; color: var(--text); }
+    .adapt-meta .a-sub { font-size: 11px; color: var(--text-soft); margin-top: 2px; line-height: 1.35; }
+    .adapt-actions { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
+    .btn-adapt {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 6px 16px -6px rgba(13, 148, 136, 0.5);
+    }
+    .btn-reset-sm {
+      border: 1px solid #e4e4e7;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: var(--bg);
+      color: var(--text-soft);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Week Scroller & Switcher */
     .wk-pills {
       display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px;
       scrollbar-width: none;
@@ -158,6 +209,7 @@
       color: #ffffff;
       border-color: var(--text);
     }
+
     .wk-banner {
       display: flex; align-items: center; justify-content: space-between;
       background: #ffffff;
@@ -176,7 +228,8 @@
     .wk-info { text-align: center; }
     .wk-info .t { font-size: 14.5px; font-weight: 800; }
     .wk-info .p { font-size: 11.5px; font-weight: 600; color: var(--accent-dark); margin-top: 2px; }
-    /* Fluid Session Cards (Soft Tints, No Hard Borders) */
+
+    /* Fluid Session Cards */
     .sess-card {
       background: #ffffff;
       border-radius: 22px;
@@ -189,18 +242,22 @@
     .sess-card.type-key { background: linear-gradient(180deg, #ffffff 0%, #fffaf5 100%); }
     .sess-card.type-rest { background: #f4f4f5; box-shadow: none; }
     .sess-card.done { background: var(--tint-sage); border-color: rgba(13, 148, 136, 0.2); }
+
     .sess-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
     .sess-day-lbl { font-size: 11.5px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.4px; }
     .sess-name { font-size: 16px; font-weight: 800; margin: 3px 0; letter-spacing: -0.2px; }
     .sess-target { font-size: 12.5px; font-weight: 700; color: var(--accent-dark); }
     .sess-card.type-key .sess-target { color: var(--coral); }
+
     .pill-tag {
       font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
     }
     .pt-key { background: var(--coral-soft); color: #c2410c; }
     .pt-easy { background: var(--tint-sky); color: #0369a1; }
     .pt-rest { background: #e4e4e7; color: #52525b; }
+
     .sess-body { font-size: 13px; color: var(--text-soft); line-height: 1.5; margin: 10px 0 12px; }
+
     /* Fast Manual Check + Quick Note */
     .action-strip { display: flex; gap: 8px; align-items: center; }
     .check-pill {
@@ -226,6 +283,7 @@
       border: none; background: var(--tint-teal); color: var(--accent-dark);
       font-size: 11.5px; font-weight: 800; cursor: pointer; white-space: nowrap;
     }
+
     /* Clean Form & Cards */
     .soft-card {
       background: #ffffff;
@@ -272,6 +330,7 @@
       border: 1px solid #e4e4e7; background: #ffffff;
       color: var(--text); font-size: 12px; font-weight: 700; cursor: pointer;
     }
+
     /* Dropzone for CSV */
     .csv-drop {
       display: block;
@@ -286,6 +345,7 @@
       color: #0369a1;
     }
     .csv-drop input { display: none; }
+
     /* Log History Pills */
     .hist-item {
       background: var(--bg);
@@ -298,6 +358,7 @@
     .hist-badge { font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #ffffff; color: var(--text-soft); }
     .hist-stats { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12.5px; font-weight: 700; color: var(--accent-dark); margin-top: 6px; }
     .hist-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-size: 11.5px; color: var(--text-soft); }
+
     /* Target vs Actual Minimalist Bar Chart */
     .chart-legend { display: flex; gap: 14px; font-size: 11.5px; font-weight: 700; color: var(--text-soft); margin-bottom: 10px; }
     .c-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
@@ -312,6 +373,7 @@
     .bar-a.goal { background: #10b981; }
     .b-num { font-size: 10px; font-weight: 700; color: var(--text-soft); }
     .b-wk { font-size: 10.5px; font-weight: 700; color: var(--muted); }
+
     /* Minimalist Zone List */
     .zone-pill-row {
       display: flex; justify-content: space-between; align-items: center;
@@ -319,6 +381,7 @@
       margin-bottom: 8px;
     }
     .zone-pill-row.hl { background: var(--tint-teal); }
+
     /* Simulator Page */
     .sim-display {
       background: linear-gradient(135deg, #f0fdfa 0%, #fff7ed 100%);
@@ -329,6 +392,7 @@
     }
     .sim-time { font-size: 36px; font-weight: 900; letter-spacing: -1px; color: var(--text); }
     .sim-pace { font-size: 13px; font-weight: 700; color: var(--accent-dark); margin-top: 4px; }
+
     input[type="range"] {
       -webkit-appearance: none; width: 100%; height: 6px;
       background: #e4e4e7; border-radius: 999px; outline: none; margin: 10px 0;
@@ -338,6 +402,7 @@
       border-radius: 50%; background: var(--accent); cursor: pointer;
       box-shadow: 0 2px 8px rgba(13, 148, 136, 0.4);
     }
+
     .seg-toggle {
       display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
       background: var(--bg); padding: 4px; border-radius: 999px; margin: 12px 0;
@@ -347,12 +412,14 @@
       font-size: 12px; font-weight: 700; padding: 8px; border-radius: 999px; cursor: pointer;
     }
     .seg-btn.active { background: #ffffff; color: var(--text); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+
     .cp-row {
       display: flex; justify-content: space-between; align-items: center;
       padding: 10px 14px; border-radius: 14px; background: var(--bg);
       margin-bottom: 7px; font-size: 13px;
     }
     .cp-row.finish { background: var(--tint-teal); font-weight: 800; color: var(--accent-dark); }
+
     /* Floating Pill Bottom Nav */
     .floating-nav-wrap {
       position: fixed;
@@ -388,6 +455,7 @@
       background: var(--text);
       color: #ffffff;
     }
+
     .toast {
       position: fixed; bottom: 86px; left: 50%; transform: translateX(-50%);
       background: var(--text); color: #ffffff;
@@ -409,6 +477,7 @@
       </div>
       <button id="installBtn" class="install-pill">+ Install</button>
     </header>
+
     <!-- Organic Summary Card + Ring -->
     <div class="hero-card">
       <div class="hero-metrics">
@@ -429,6 +498,7 @@
         <div class="hero-chip-row">
           <span class="soft-chip">36 Minggu Roadmap</span>
           <span class="soft-chip" id="hdrWeekTarget">Target: 32 km</span>
+          <span class="soft-chip" id="hdrPaceStatus">Pace Plan: Standar</span>
         </div>
       </div>
       <div class="ring-box">
@@ -439,6 +509,7 @@
         <div class="ring-label" id="ringPctText">0%<span>pekan</span></div>
       </div>
     </div>
+
     <!-- Page Indicator -->
     <div class="swipe-bar">
       <span class="swipe-title" id="pageIndicatorLabel">Jadwal Latihan • Geser kiri/kanan</span>
@@ -449,11 +520,25 @@
         <span class="s-dot"></span>
       </div>
     </div>
+
     <!-- Swipeable Pages Container -->
     <main class="viewport" id="swipeArea">
       <!-- PAGE 0: JADWAL LATIHAN -->
       <section id="page-0" class="page active">
+        <!-- Smart Pace Adjustment Button Based on Run Logs -->
+        <div class="adapt-bar">
+          <div class="adapt-meta">
+            <div class="a-title" id="adaptTitle">Penyesuaian Pace dari Log Lari</div>
+            <div class="a-sub" id="adaptSub">Hitung ulang zona Easy, Long Run & Threshold berdasarkan pace & HR log terbaru.</div>
+          </div>
+          <div class="adapt-actions">
+            <button class="btn-adapt" onclick="applyPaceAdjustmentFromLogs()">⚡ Sesuaikan Pace</button>
+            <button class="btn-reset-sm" id="btnResetPace" onclick="resetPaceAdjustment()" style="display:none;">Reset</button>
+          </div>
+        </div>
+
         <div class="wk-pills" id="wkPills"></div>
+
         <div class="wk-banner">
           <button class="circle-btn" id="prevWk" onclick="stepWeek(-1)">‹</button>
           <div class="wk-info">
@@ -462,8 +547,10 @@
           </div>
           <button class="circle-btn" id="nextWk" onclick="stepWeek(1)">›</button>
         </div>
+
         <div id="sessionContainer"></div>
       </section>
+
       <!-- PAGE 1: LOG DETAIL & IMPORT CSV -->
       <section id="page-1" class="page">
         <div class="soft-card">
@@ -474,6 +561,7 @@
             </div>
             <button class="btn-ghost" onclick="copyLastRun()">📋 Copy Laporan</button>
           </div>
+
           <form onsubmit="submitRunLog(event)">
             <div class="f-grid">
               <div class="f-group">
@@ -525,13 +613,16 @@
                 <input type="text" id="inNote" placeholder="mis. 3x4 mnt di 5:50/km, kaki aman" />
               </div>
             </div>
+
             <div class="pace-pill-preview">
               <span>Pace Otomatis</span>
               <span id="livePaceText">— /km</span>
             </div>
+
             <button type="submit" class="btn-main">Simpan ke Jurnal Lari</button>
           </form>
         </div>
+
         <div class="soft-card">
           <div class="sc-head">
             <div>
@@ -545,6 +636,7 @@
           </label>
           <p id="csvMsg" style="font-size:11.5px;color:var(--text-soft);margin:8px 0 0;text-align:center;">Data otomatis terdeteksi & disinkronkan ke grafik.</p>
         </div>
+
         <div class="soft-card">
           <div class="sc-head">
             <h2 class="sc-title">Riwayat Lari</h2>
@@ -553,6 +645,7 @@
           <div id="histList"></div>
         </div>
       </section>
+
       <!-- PAGE 2: GRAFIK TARGET VS AKTUAL -->
       <section id="page-2" class="page">
         <div class="soft-card">
@@ -569,19 +662,20 @@
           </div>
           <div class="bars-area" id="compBars"></div>
         </div>
+
         <div class="soft-card">
           <h2 class="sc-title" style="margin-bottom:10px;">Zona Pace & HR Acuan</h2>
           <div class="zone-pill-row">
             <div><strong>Easy / Recovery</strong><div style="font-size:11.5px;color:var(--text-soft);">80% porsi lari santai</div></div>
-            <div style="text-align:right;"><strong>7:35–8:10/km</strong><div style="font-size:11.5px;color:var(--text-soft);">&lt; 150 bpm</div></div>
+            <div style="text-align:right;"><strong id="zEasyPace">7:35–8:10/km</strong><div style="font-size:11.5px;color:var(--text-soft);">&lt; 150 bpm</div></div>
           </div>
           <div class="zone-pill-row">
             <div><strong>Steady Long Run</strong><div style="font-size:11.5px;color:var(--text-soft);">Ketahanan aerobik</div></div>
-            <div style="text-align:right;"><strong>7:00–7:35/km</strong><div style="font-size:11.5px;color:var(--text-soft);">148–156 bpm</div></div>
+            <div style="text-align:right;"><strong id="zLrPace">7:00–7:35/km</strong><div style="font-size:11.5px;color:var(--text-soft);">148–156 bpm</div></div>
           </div>
           <div class="zone-pill-row">
             <div><strong>Intro Threshold</strong><div style="font-size:11.5px;color:var(--text-soft);">Cruise intervals 3–4 mnt</div></div>
-            <div style="text-align:right;"><strong>5:45–6:00/km</strong><div style="font-size:11.5px;color:var(--text-soft);">160–170 bpm</div></div>
+            <div style="text-align:right;"><strong id="zThrPace">5:45–6:00/km</strong><div style="font-size:11.5px;color:var(--text-soft);">160–170 bpm</div></div>
           </div>
           <div class="zone-pill-row hl">
             <div><strong>Sub-2 HM Goal Pace</strong><div style="font-size:11.5px;color:var(--accent-dark);">Target Agustus 2027</div></div>
@@ -589,6 +683,7 @@
           </div>
         </div>
       </section>
+
       <!-- PAGE 3: SIMULASI RACE SUB-2 HM -->
       <section id="page-3" class="page">
         <div class="soft-card">
@@ -598,23 +693,28 @@
               <p class="sc-sub">Atur target waktu & strategi pacing hari-H</p>
             </div>
           </div>
+
           <div class="sim-display">
             <div class="sim-time" id="simTimeBig">1:59:30</div>
             <div class="sim-pace" id="simPaceSub">Pace Rata-rata 5:40/km • Sub-2 Tercapai ✓</div>
           </div>
+
           <div class="f-group">
             <label>Geser Target Finish: <strong id="simMinLbl">119.5 menit</strong></label>
             <input type="range" id="simSlider" min="110" max="140" step="0.5" value="119.5" oninput="updateSimSlider(this.value)" />
           </div>
+
           <div class="seg-toggle">
             <button id="btnEven" class="seg-btn active" onclick="setSimStrat('even')">Even Pace (Konstan)</button>
             <button id="btnNeg" class="seg-btn" onclick="setSimStrat('negative')">Negative Split (Hemat Awal)</button>
           </div>
+
           <div id="simCheckpoints"></div>
         </div>
       </section>
     </main>
   </div>
+
   <!-- Floating Minimalist Pill Nav -->
   <div class="floating-nav-wrap">
     <nav class="floating-nav">
@@ -624,84 +724,221 @@
       <button class="f-tab" onclick="switchPage(3)"><span class="ic">⏱️</span><span>Simulasi</span></button>
     </nav>
   </div>
+
   <div class="toast" id="toast">Tersimpan</div>
+
   <script>
-    // 1. 36-Week Roadmap Data
-    const baseMon = new Date('2026-11-23T00:00:00');
-    const weeks = [];
-    const mNames = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
-    const fmtShort = d => `${d.getDate()} ${mNames[d.getMonth()]}`;
-    for (let w = 1; w <= 36; w++) {
-      const s = new Date(baseMon); s.setDate(baseMon.getDate() + (w - 1) * 7);
-      const e = new Date(s); e.setDate(s.getDate() + 6);
-      const iso = s.toISOString().slice(0, 10);
-      let phase = 'Blok 1 • Base & Intro Threshold';
-      let targetKm = 32, lrKm = 12, thr = '3 × 4 mnt @ 5:45–6:00/km';
-      if (w > 1 && w <= 9) {
-        const deload = w % 4 === 0;
-        targetKm = deload ? 25 : Math.min(38, 31 + w);
-        lrKm = deload ? 10 : Math.min(16, 11 + Math.floor(w * 0.7));
-        thr = w <= 3 ? '3 × 4 mnt @ 5:45–6:00/km' : '4 × 4 mnt @ 5:40–5:55/km';
-      } else if (w >= 10 && w <= 19) {
-        phase = 'Blok 2 • Threshold & Speed Endurance';
-        const deload = w % 4 === 0;
-        targetKm = deload ? 30 : Math.min(46, 36 + (w - 9));
-        lrKm = deload ? 12 : Math.min(19, 14 + Math.floor((w - 9) * 0.6));
-        thr = w <= 14 ? '3 × 6 mnt @ 5:35–5:48/km' : 'Tempo 4–5 km @ 5:30–5:42/km';
-      } else if (w >= 20 && w <= 32) {
-        phase = 'Blok 3 • Race Specificity Sub-2 HM';
-        const deload = w % 4 === 0;
-        targetKm = deload ? 34 : Math.min(50, 42 + Math.floor((w - 19) * 0.7));
-        lrKm = deload ? 14 : Math.min(22, 16 + Math.floor((w - 19) * 0.5));
-        thr = '2 × 3 km / 6 km @ Goal Pace 5:38–5:41/km';
-      } else if (w >= 33) {
-        phase = 'Blok 4 • Taper & Race Week';
-        const t = w - 32;
-        targetKm = t === 1 ? 36 : t === 2 ? 28 : t === 3 ? 20 : 26;
-        lrKm = t === 1 ? 14 : t === 2 ? 10 : t === 3 ? 6 : 21.1;
-        thr = t === 4 ? 'RACE DAY: Half Marathon 21,1 km (< 2:00:00)' : '3 × 1 km @ 5:38/km';
-      }
-      const sessions = w === 1 ? [
-        { id: 'w1_wed', day: 'Rabu, 25 Nov', name: 'Easy Run (Selesai)', target: '6,02 km • 7:43/km • HR 148 bpm', type: 'easy', desc: 'Tercatat dari Strava pagi (05:46 WIB).' },
-        { id: 'w1_thu', day: 'Kamis, 26 Nov', name: 'Intro Threshold', target: '~5 km • 3×4 mnt @ 5:45–6:00/km', type: 'key', desc: 'Pemanasan 1,5 km easy, 3 × 4 menit @ 5:45–6:00/km (jeda jog 2 mnt), pendinginan ~1 km.' },
-        { id: 'w1_fri', day: 'Jumat, 27 Nov', name: 'Easy Recovery Run', target: '5 km • 7:45–8:10/km • HR < 150', type: 'easy', desc: 'Lari santai memulihkan otot setelah sesi Kamis.' },
-        { id: 'w1_sat', day: 'Sabtu, 28 Nov', name: 'Endurance Long Run', target: '12 km • 10 km easy + 2 km steady', type: 'key', desc: '10 km nyaman (7:20–7:45/km), 2 km terakhir naik ke 6:50–7:10/km bila kaki enak.' },
-        { id: 'w1_sun', day: 'Minggu, 29 Nov', name: 'Easy Shakeout Jog', target: '4 km • 7:50–8:20/km • Opsional Rest', type: 'easy', desc: 'Jog santai 4 km atau istirahat penuh bila pegal.' },
-        { id: 'w1_mon', day: 'Senin, 30 Nov', name: 'Rest Day Rutin', target: '0 km • Pemulihan Total', type: 'rest', desc: 'Hari libur lari wajib untuk regenerasi.' }
-      ] : [
-        { id: `w${w}_mon`, day: 'Senin', name: 'Rest Day Rutin', target: '0 km • Pemulihan Penuh', type: 'rest', desc: 'Libur lari rutin setiap Senin.' },
-        { id: `w${w}_tue`, day: 'Selasa', name: 'Easy Run + Strides', target: '5–6 km • 7:40–8:05/km + 4×20 dtk', type: 'easy', desc: 'Lari santai ditutup 4×20 detik strides rileks.' },
-        { id: `w${w}_wed`, day: 'Rabu', name: 'Rest / Core Mobility', target: '0 km • Stretching 20 Menit', type: 'rest', desc: 'Jeda tengah pekan sebelum threshold Kamis.' },
-        { id: `w${w}_thu`, day: 'Kamis', name: 'Threshold / Cruise', target: `6–8 km • ${thr}`, type: 'key', desc: `Pemanasan 1,5 km, sesi inti ${thr}, pendinginan 1 km.` },
-        { id: `w${w}_fri`, day: 'Jumat', name: 'Easy Recovery Run', target: '5 km • 7:45–8:10/km • HR < 150', type: 'easy', desc: 'Lari pemulihan berintensitas rendah.' },
-        { id: `w${w}_sat`, day: 'Sabtu', name: w === 36 ? 'RACE DAY: Half Marathon' : 'Long Run Progresif', target: `${lrKm} km • ${w === 36 ? 'Target < 2:00:00' : '7:10–7:40/km'}`, type: 'key', desc: w === 36 ? 'Eksekusi strategi pacing Sub-2 HM!' : `Ketahanan aerobik ${lrKm} km; 2–3 km akhir steady.` },
-        { id: `w${w}_sun`, day: 'Minggu', name: 'Easy Shakeout Jog', target: '4–5 km • 7:50–8:20/km', type: 'easy', desc: 'Jog sangat santai menutup pekan.' }
-      ];
-      weeks.push({ num: w, iso, title: `Minggu ${w} (${fmtShort(s)} – ${fmtShort(e)})`, short: `Mgg ${w}`, phase, targetKm, sessions });
-    }
-    // 2. State
+    const fmtPace = sec => (!sec || !isFinite(sec) || sec <= 0) ? '—' : `${Math.floor(sec/60)}:${String(Math.round(sec%60)).padStart(2,'0')}`;
+    const fmtDur = sec => {
+      const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = Math.round(sec%60);
+      return h > 0 ? `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}` : `${m}:${String(s).padStart(2,'0')}`;
+    };
+    const shiftRangeText = (aSec, bSec, offsetSec) => `${fmtPace(aSec + offsetSec)}–${fmtPace(bSec + offsetSec)}/km`;
+
+    // 1. Seed Logs & Persistent State
     const seedLogs = [
       { id: 'st_1', date: '2026-11-25', type: 'Easy Run', dist: 6.02, durSec: 2787, paceSec: 463, avgHr: 148, maxHr: 160, rpe: '5 • Nyaman', gear: 'ASICS Novablast 5', note: 'Strava • GT 4', src: 'Strava' },
       { id: 'st_2', date: '2026-11-20', type: 'Easy Run', dist: 6.00, durSec: 2863, paceSec: 477, avgHr: 147, maxHr: 153, rpe: '4 • Ringan', gear: 'ASICS Novablast 5', note: 'Strava • GT 4', src: 'Strava' },
       { id: 'st_3', date: '2026-11-17', type: 'Tempo / HMP', dist: 5.02, durSec: 1848, paceSec: 368, avgHr: 164, maxHr: 179, rpe: '8 • Berat', gear: 'ASICS Novablast 5', note: 'Best 5K 6:08/km', src: 'Strava' },
       { id: 'st_4', date: '2026-11-14', type: 'Long Run', dist: 14.12, durSec: 6298, paceSec: 446, avgHr: 150, maxHr: 163, rpe: '6 • Steady', gear: 'ASICS Novablast 5', note: 'Long run 14.1 km', src: 'Strava' }
     ];
-    let st = JSON.parse(localStorage.getItem('sub2_minimal_v3') || 'null');
+
+    let st = JSON.parse(localStorage.getItem('sub2_minimal_v4') || 'null');
     if (!st) {
-      st = { wkIdx: 0, done: { w1_wed: true }, notes: { w1_wed: '6.02 km @ 7:43/km' }, logs: seedLogs };
+      st = {
+        wkIdx: 0,
+        paceOffsetSec: 0,
+        adaptSummary: '',
+        done: { w1_wed: true },
+        notes: { w1_wed: '6.02 km @ 7:43/km' },
+        logs: seedLogs
+      };
+    }
+
+    // 2. Build 36-Week Roadmap dynamically using paceOffsetSec
+    const baseMon = new Date('2026-11-23T00:00:00');
+    const mNames = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+    const fmtShort = d => `${d.getDate()} ${mNames[d.getMonth()]}`;
+    let weeks = [];
+
+    function buildWeeks() {
+      const off = st.paceOffsetSec || 0;
+      weeks = [];
+      for (let w = 1; w <= 36; w++) {
+        const s = new Date(baseMon); s.setDate(baseMon.getDate() + (w - 1) * 7);
+        const e = new Date(s); e.setDate(s.getDate() + 6);
+        const iso = s.toISOString().slice(0, 10);
+
+        let phase = 'Blok 1 • Base & Intro Threshold';
+        let targetKm = 32, lrKm = 12;
+        let easyA = 455, easyB = 490; // 7:35 - 8:10
+        let lrA = 420, lrB = 455;   // 7:00 - 7:35
+        let thrA = 345, thrB = 360; // 5:45 - 6:00
+        let thrLabel = `3 × 4 mnt @ ${shiftRangeText(thrA, thrB, off)}`;
+
+        if (w > 1 && w <= 9) {
+          const deload = w % 4 === 0;
+          targetKm = deload ? 25 : Math.min(38, 31 + w);
+          lrKm = deload ? 10 : Math.min(16, 11 + Math.floor(w * 0.7));
+          thrA = w <= 3 ? 345 : 340;
+          thrB = w <= 3 ? 360 : 355;
+          thrLabel = (w <= 3 ? '3 × 4 mnt @ ' : '4 × 4 mnt @ ') + shiftRangeText(thrA, thrB, off);
+        } else if (w >= 10 && w <= 19) {
+          phase = 'Blok 2 • Threshold & Speed Endurance';
+          const deload = w % 4 === 0;
+          targetKm = deload ? 30 : Math.min(46, 36 + (w - 9));
+          lrKm = deload ? 12 : Math.min(19, 14 + Math.floor((w - 9) * 0.6));
+          easyA = 445; easyB = 480;
+          thrA = w <= 14 ? 335 : 330;
+          thrB = w <= 14 ? 348 : 342;
+          thrLabel = (w <= 14 ? '3 × 6 mnt @ ' : 'Tempo 4–5 km @ ') + shiftRangeText(thrA, thrB, off);
+        } else if (w >= 20 && w <= 32) {
+          phase = 'Blok 3 • Race Specificity Sub-2 HM';
+          const deload = w % 4 === 0;
+          targetKm = deload ? 34 : Math.min(50, 42 + Math.floor((w - 19) * 0.7));
+          lrKm = deload ? 14 : Math.min(22, 16 + Math.floor((w - 19) * 0.5));
+          easyA = 435; easyB = 470;
+          thrA = 338; thrB = 341;
+          thrLabel = `6 km @ Goal Pace ${shiftRangeText(thrA, thrB, off)}`;
+        } else if (w >= 33) {
+          phase = 'Blok 4 • Taper & Race Week';
+          const t = w - 32;
+          targetKm = t === 1 ? 36 : t === 2 ? 28 : t === 3 ? 20 : 26;
+          lrKm = t === 1 ? 14 : t === 2 ? 10 : t === 3 ? 6 : 21.1;
+          thrA = 338; thrB = 341;
+          thrLabel = t === 4 ? 'RACE DAY: Half Marathon 21,1 km (< 2:00:00)' : `3 × 1 km @ ${fmtPace(338 + off)}/km`;
+        }
+
+        const easyStr = shiftRangeText(easyA, easyB, off);
+        const lrStr = shiftRangeText(lrA, lrB, off);
+
+        const sessions = w === 1 ? [
+          { id: 'w1_wed', day: 'Rabu, 25 Nov', name: 'Easy Run (Selesai)', target: '6,02 km • 7:43/km • HR 148 bpm', type: 'easy', desc: 'Tercatat dari Strava pagi (05:46 WIB).' },
+          { id: 'w1_thu', day: 'Kamis, 26 Nov', name: 'Intro Threshold', target: `~5 km • ${thrLabel}`, type: 'key', desc: `Pemanasan 1,5 km easy, 3 × 4 menit @ ${shiftRangeText(thrA, thrB, off)} (jeda jog 2 mnt), pendinginan ~1 km.` },
+          { id: 'w1_fri', day: 'Jumat, 27 Nov', name: 'Easy Recovery Run', target: `5 km • ${easyStr} • HR < 150`, type: 'easy', desc: 'Lari santai memulihkan otot setelah sesi Kamis.' },
+          { id: 'w1_sat', day: 'Sabtu, 28 Nov', name: 'Endurance Long Run', target: `12 km • 10 km easy + 2 km @ ${lrStr}`, type: 'key', desc: `10 km nyaman (${easyStr}), 2 km terakhir naik ke ${lrStr} bila kaki enak.` },
+          { id: 'w1_sun', day: 'Minggu, 29 Nov', name: 'Easy Shakeout Jog', target: `4 km • ${shiftRangeText(470, 500, off)} • Opsional Rest`, type: 'easy', desc: 'Jog santai 4 km atau istirahat penuh bila pegal.' },
+          { id: 'w1_mon', day: 'Senin, 30 Nov', name: 'Rest Day Rutin', target: '0 km • Pemulihan Total', type: 'rest', desc: 'Hari libur lari wajib untuk regenerasi.' }
+        ] : [
+          { id: `w${w}_mon`, day: 'Senin', name: 'Rest Day Rutin', target: '0 km • Pemulihan Penuh', type: 'rest', desc: 'Libur lari rutin setiap Senin.' },
+          { id: `w${w}_tue`, day: 'Selasa', name: 'Easy Run + Strides', target: `5–6 km • ${easyStr} + 4×20 dtk`, type: 'easy', desc: 'Lari santai ditutup 4×20 detik strides rileks.' },
+          { id: `w${w}_wed`, day: 'Rabu', name: 'Rest / Core Mobility', target: '0 km • Stretching 20 Menit', type: 'rest', desc: 'Jeda tengah pekan sebelum threshold Kamis.' },
+          { id: `w${w}_thu`, day: 'Kamis', name: 'Threshold / Cruise', target: `6–8 km • ${thrLabel}`, type: 'key', desc: `Pemanasan 1,5 km, sesi inti ${thrLabel}, pendinginan 1 km.` },
+          { id: `w${w}_fri`, day: 'Jumat', name: 'Easy Recovery Run', target: `5 km • ${easyStr} • HR < 150`, type: 'easy', desc: 'Lari pemulihan berintensitas rendah.' },
+          { id: `w${w}_sat`, day: 'Sabtu', name: w === 36 ? 'RACE DAY: Half Marathon' : 'Long Run Progresif', target: `${lrKm} km • ${w === 36 ? 'Target < 2:00:00' : lrStr}`, type: 'key', desc: w === 36 ? 'Eksekusi strategi pacing Sub-2 HM!' : `Ketahanan aerobik ${lrKm} km; 2–3 km akhir steady.` },
+          { id: `w${w}_sun`, day: 'Minggu', name: 'Easy Shakeout Jog', target: `4–5 km • ${shiftRangeText(470, 500, off)}`, type: 'easy', desc: 'Jog sangat santai menutup pekan.' }
+        ];
+
+        weeks.push({ num: w, iso, title: `Minggu ${w} (${fmtShort(s)} – ${fmtShort(e)})`, short: `Mgg ${w}`, phase, targetKm, sessions });
+      }
+
+      // Update zone reference labels on Page 2
+      document.getElementById('zEasyPace').textContent = shiftRangeText(455, 490, off);
+      document.getElementById('zLrPace').textContent = shiftRangeText(420, 455, off);
+      document.getElementById('zThrPace').textContent = shiftRangeText(345, 360, off);
+    }
+
+    // 3. Smart Pace Adjustment Engine Based on Run Logs
+    function applyPaceAdjustmentFromLogs() {
+      if (!st.logs || st.logs.length === 0) {
+        toast('Belum ada log lari untuk dihitung');
+        return;
+      }
+
+      const easyLogs = st.logs.filter(l => l.type === 'Easy Run' || l.type === 'Recovery Jog' || l.paceSec >= 440).slice(0, 4);
+      const keyLogs = st.logs.filter(l => l.type === 'Tempo / HMP' || l.type === 'Intro Threshold' || l.type === 'Long Run').slice(0, 3);
+
+      let deltaSec = 0;
+      let reasons = [];
+
+      if (easyLogs.length > 0) {
+        const avgEasyPace = easyLogs.reduce((a, b) => a + b.paceSec, 0) / easyLogs.length;
+        const hrs = easyLogs.map(l => l.avgHr).filter(Boolean);
+        const avgEasyHr = hrs.length ? hrs.reduce((a, b) => a + b, 0) / hrs.length : null;
+
+        // Baseline Easy pace ~ 7:52/km (472s)
+        const paceDiff = avgEasyPace - 472;
+        if (paceDiff < -6 && (!avgEasyHr || avgEasyHr <= 152)) {
+          deltaSec -= Math.min(10, Math.round(Math.abs(paceDiff) * 0.45));
+          reasons.push(`Easy ${fmtPace(avgEasyPace)}/km${avgEasyHr ? ` @ ${Math.round(avgEasyHr)}bpm` : ''}`);
+        } else if (paceDiff > 8 || (avgEasyHr && avgEasyHr > 158)) {
+          deltaSec += Math.min(10, Math.round(Math.max(paceDiff * 0.35, 5)));
+          reasons.push(`HR/pace perlu hemat (${fmtPace(avgEasyPace)}/km)`);
+        } else {
+          reasons.push(`Easy stabil ${fmtPace(avgEasyPace)}/km`);
+        }
+      }
+
+      if (keyLogs.length > 0) {
+        const latestKey = keyLogs[0];
+        if (latestKey.paceSec <= 375) {
+          deltaSec -= 4;
+          reasons.push(`sesi cepat ${fmtPace(latestKey.paceSec)}/km`);
+        }
+      }
+
+      // Clamp offset safely between -16s (faster) and +16s (more conservative)
+      deltaSec = Math.max(-16, Math.min(16, deltaSec));
+      if (deltaSec === 0 && st.logs.length >= 2) {
+        // Subtle -3s progression when consistent logs exist
+        deltaSec = -3;
+        reasons.push('progres konsisten -3 dtk/km');
+      }
+
+      st.paceOffsetSec = deltaSec;
+      st.adaptSummary = reasons.join(' • ');
       saveSt();
+      buildWeeks();
+      renderSchedule();
+      toast(`Pace disesuaikan (${deltaSec > 0 ? '+' : ''}${deltaSec} dtk/km) ✓`);
     }
+
+    function resetPaceAdjustment() {
+      st.paceOffsetSec = 0;
+      st.adaptSummary = '';
+      saveSt();
+      buildWeeks();
+      renderSchedule();
+      toast('Pace dikembalikan ke standar');
+    }
+
+    function renderAdaptBanner() {
+      const off = st.paceOffsetSec || 0;
+      const statusChip = document.getElementById('hdrPaceStatus');
+      const resetBtn = document.getElementById('btnResetPace');
+      const titleEl = document.getElementById('adaptTitle');
+      const subEl = document.getElementById('adaptSub');
+
+      if (off !== 0) {
+        const sign = off > 0 ? `+${off}` : `${off}`;
+        statusChip.textContent = `Pace: ${sign} dtk/km`;
+        statusChip.classList.add('adjusted');
+        resetBtn.style.display = 'inline-block';
+        titleEl.textContent = `Pace Tersesuaikan (${sign} dtk/km)`;
+        subEl.textContent = st.adaptSummary || 'Diterapkan ke zona Easy, Long Run & Threshold.';
+      } else {
+        statusChip.textContent = 'Pace Plan: Standar';
+        statusChip.classList.remove('adjusted');
+        resetBtn.style.display = 'none';
+        titleEl.textContent = 'Penyesuaian Pace dari Log Lari';
+        subEl.textContent = 'Hitung ulang zona Easy, Long Run & Threshold berdasarkan pace & HR log terbaru.';
+      }
+    }
+
     function saveSt() {
-      localStorage.setItem('sub2_minimal_v3', JSON.stringify(st));
+      localStorage.setItem('sub2_minimal_v4', JSON.stringify(st));
       refreshTopMetrics();
+      renderAdaptBanner();
     }
+
     function toast(msg) {
       const el = document.getElementById('toast');
       el.textContent = msg;
       el.classList.add('show');
       setTimeout(() => el.classList.remove('show'), 2100);
     }
-    // 3. Swipe & Page Navigation
+
+    // 4. Swipe & Page Navigation
     let curPage = 0;
     const pTitles = [
       'Jadwal Latihan • Geser kiri/kanan',
@@ -709,6 +946,7 @@
       'Grafik Target vs Aktual',
       'Simulasi Race Sub-2 HM'
     ];
+
     function switchPage(i) {
       if (i < 0 || i > 3) return;
       curPage = i;
@@ -720,6 +958,7 @@
       if (i === 3) renderSim();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
     let sx = 0, sy = 0;
     const sa = document.getElementById('swipeArea');
     sa.addEventListener('touchstart', e => {
@@ -737,7 +976,8 @@
       }
       sx = null;
     }, { passive: true });
-    // 4. Week & Schedule Render
+
+    // 5. Week & Schedule Render
     function renderPills() {
       const box = document.getElementById('wkPills');
       box.innerHTML = weeks.map((w, i) => `
@@ -746,26 +986,31 @@
       const act = box.children[st.wkIdx];
       if (act) act.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
+
     function pickWeek(i) {
       st.wkIdx = i;
       saveSt();
       renderPills();
       renderSchedule();
     }
+
     function stepWeek(d) {
       const n = st.wkIdx + d;
       if (n >= 0 && n < weeks.length) pickWeek(n);
     }
+
     function toggleCheck(id) {
       st.done[id] = !st.done[id];
       saveSt();
       renderSchedule();
       toast(st.done[id] ? 'Selesai ✓' : 'Ceklis dibatalkan');
     }
+
     function editQuickNote(id, v) {
       st.notes[id] = v;
       saveSt();
     }
+
     function jumpToLog(name) {
       switchPage(1);
       const sel = document.getElementById('inType');
@@ -775,12 +1020,14 @@
       else sel.value = 'Easy Run';
       document.getElementById('inDist').focus();
     }
+
     function renderSchedule() {
       const wk = weeks[st.wkIdx];
       document.getElementById('wkTitle').textContent = wk.title;
       document.getElementById('wkPhase').textContent = `${wk.phase} • Target ${wk.targetKm} km`;
       document.getElementById('prevWk').disabled = st.wkIdx === 0;
       document.getElementById('nextWk').disabled = st.wkIdx === weeks.length - 1;
+
       let doneCnt = 0;
       document.getElementById('sessionContainer').innerHTML = wk.sessions.map(s => {
         const isDone = !!st.done[s.id];
@@ -807,13 +1054,14 @@
           </div>
         `;
       }).join('');
-      // Update Ring
+
       const pct = Math.round((doneCnt / wk.sessions.length) * 100);
       const circ = 207.3;
       document.getElementById('ringFg').style.strokeDashoffset = circ - (circ * pct) / 100;
       document.getElementById('ringPctText').innerHTML = `${pct}%<span>pekan</span>`;
     }
-    // 5. Log Detail + CSV Import
+
+    // 6. Log Detail + CSV Import
     const parseDur = str => {
       const p = String(str || '').trim().split(':').map(Number);
       if (p.some(isNaN)) return 0;
@@ -821,16 +1069,13 @@
       if (p.length === 2) return p[0]*60 + p[1];
       return p[0]*60;
     };
-    const fmtPace = sec => (!sec || !isFinite(sec) || sec <= 0) ? '—' : `${Math.floor(sec/60)}:${String(Math.round(sec%60)).padStart(2,'0')}`;
-    const fmtDur = sec => {
-      const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = Math.round(sec%60);
-      return h > 0 ? `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}` : `${m}:${String(s).padStart(2,'0')}`;
-    };
+
     function calcLivePace() {
       const d = parseFloat(document.getElementById('inDist').value);
       const s = parseDur(document.getElementById('inDur').value);
       document.getElementById('livePaceText').textContent = (d > 0 && s > 0) ? `${fmtPace(s/d)} /km` : '— /km';
     }
+
     function submitRunLog(e) {
       e.preventDefault();
       const date = document.getElementById('inDate').value;
@@ -838,6 +1083,7 @@
       const dist = parseFloat(document.getElementById('inDist').value);
       const durSec = parseDur(document.getElementById('inDur').value);
       if (!date || !(dist > 0) || !(durSec > 0)) return;
+
       st.logs.unshift({
         id: 'man_' + Date.now(),
         date, type,
@@ -860,12 +1106,14 @@
       document.getElementById('livePaceText').textContent = '— /km';
       toast('Tersimpan ke jurnal ✓');
     }
+
     function removeLog(id) {
       st.logs = st.logs.filter(l => l.id !== id);
       saveSt();
       renderLogs();
       toast('Log dihapus');
     }
+
     function copyLastRun() {
       if (!st.logs.length) return;
       const l = st.logs[0];
@@ -873,6 +1121,7 @@
       const txt = `Update Sesi (${l.date}) — ${l.type}: ${l.dist} km • ${fmtDur(l.durSec)} (${fmtPace(l.paceSec)}/km)${hr} | ${l.rpe}${l.note ? ` | ${l.note}` : ''}`;
       navigator.clipboard.writeText(txt).then(() => toast('Laporan sesi di-copy! Siap paste'));
     }
+
     function renderLogs() {
       document.getElementById('histCount').textContent = `${st.logs.length} sesi`;
       document.getElementById('histList').innerHTML = st.logs.slice(0, 25).map(l => `
@@ -896,6 +1145,7 @@
         </div>
       `).join('');
     }
+
     function parseCsvRow(row) {
       const out = []; let cur = '', q = false;
       for (let i = 0; i < row.length; i++) {
@@ -907,6 +1157,7 @@
       out.push(cur);
       return out;
     }
+
     function importStravaCsv(ev) {
       const f = ev.target.files[0];
       if (!f) return;
@@ -918,6 +1169,7 @@
         const iType = h.indexOf('Activity Type'), iDate = h.indexOf('Activity Date'), iDesc = h.indexOf('Activity Description');
         const iDist = h.indexOf('Distance'), iDistM = h.lastIndexOf('Distance.1'), iMove = h.indexOf('Moving Time');
         const iHr = h.indexOf('Average Heart Rate'), iMaxHr = h.indexOf('Max Heart Rate'), iGear = h.indexOf('Activity Gear'), iId = h.indexOf('Activity ID');
+
         const seen = new Set(st.logs.map(x => x.id));
         let added = 0;
         for (let i = 1; i < lines.length; i++) {
@@ -927,11 +1179,14 @@
           let dt = m ? m[1] : '';
           if (!dt && c[iDate]) { const p = new Date(c[iDate]); if (!isNaN(p)) dt = p.toISOString().slice(0, 10); }
           if (!dt) continue;
+
           const distKm = (iDistM > iDist && parseFloat(c[iDistM]) > 50) ? parseFloat(c[iDistM])/1000 : (parseFloat(c[iDist]) || 0);
           const durSec = parseFloat(c[iMove]) || 0;
           if (distKm <= 0.2 || durSec <= 30) continue;
+
           const id = c[iId] ? `strava_${c[iId]}` : `strava_${dt}_${distKm.toFixed(2)}`;
           if (seen.has(id)) continue;
+
           const paceSec = durSec / distKm;
           st.logs.push({
             id, date: dt,
@@ -957,7 +1212,8 @@
       };
       r.readAsText(f);
     }
-    // 6. Target vs Actual Comparison
+
+    // 7. Target vs Actual Comparison
     function weekActualKm(iso) {
       const a = new Date(iso + 'T00:00:00'), b = new Date(a);
       b.setDate(a.getDate() + 7);
@@ -965,12 +1221,14 @@
       st.logs.forEach(l => { const d = new Date(l.date + 'T00:00:00'); if (d >= a && d < b) sum += Number(l.dist) || 0; });
       return Math.round(sum * 10) / 10;
     }
+
     function refreshTopMetrics() {
-      const curWk = weeks[st.wkIdx];
+      const curWk = weeks[st.wkIdx] || weeks[0];
       document.getElementById('hdrActualKm').textContent = `${weekActualKm(curWk.iso).toFixed(1)} km`;
       document.getElementById('hdrRunCount').textContent = `${st.logs.length}`;
       document.getElementById('hdrWeekTarget').textContent = `Target: ${curWk.targetKm} km`;
     }
+
     function renderComparison() {
       const slice = weeks.slice(0, 12);
       const max = 52;
@@ -991,7 +1249,8 @@
         `;
       }).join('');
     }
-    // 7. Race Simulator
+
+    // 8. Race Simulator
     let simMode = 'even';
     function setSimStrat(m) {
       simMode = m;
@@ -1009,6 +1268,7 @@
       const avgPace = totSec / 21.0975;
       document.getElementById('simTimeBig').textContent = fmtDur(totSec);
       document.getElementById('simPaceSub').textContent = `Pace Rata-rata ${fmtPace(avgPace)}/km • ${totSec < 7200 ? 'Sub-2 Tercapai ✓' : 'Di atas 2:00:00'}`;
+
       const cps = [5, 10, 15, 20, 21.0975];
       document.getElementById('simCheckpoints').innerHTML = cps.map((km, idx) => {
         let p = avgPace, c = avgPace * km;
@@ -1030,7 +1290,8 @@
         `;
       }).join('');
     }
-    // 8. PWA
+
+    // 9. PWA
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
     }
@@ -1044,11 +1305,14 @@
       defPrompt.prompt(); await defPrompt.userChoice;
       defPrompt = null; instBtn.style.display = 'none';
     });
+
+    buildWeeks();
     document.getElementById('inDate').value = new Date().toISOString().slice(0, 10);
     renderPills();
     renderSchedule();
     renderLogs();
     refreshTopMetrics();
+    renderAdaptBanner();
     renderSim();
   </script>
 </body>
