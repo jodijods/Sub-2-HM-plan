@@ -31,7 +31,6 @@
       --shadow-soft: 0 10px 30px -10px rgba(24, 24, 27, 0.07);
       --shadow-float: 0 14px 34px -8px rgba(13, 148, 136, 0.22);
     }
-
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     html, body {
       margin: 0; padding: 0;
@@ -41,9 +40,7 @@
       overscroll-behavior-x: none;
     }
     body { padding-bottom: 102px; }
-
     .wrap { max-width: 520px; margin: 0 auto; padding: 18px 16px; }
-
     /* Minimalist Editorial Header (No Heavy Box) */
     .top-header {
       display: flex;
@@ -89,7 +86,6 @@
       box-shadow: var(--shadow-soft);
       white-space: nowrap;
     }
-
     /* Soft Organic Hero Summary Card with Progress Ring */
     .hero-card {
       background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
@@ -115,7 +111,6 @@
       color: var(--text-soft);
       border: 1px solid var(--border);
     }
-
     /* SVG Ring */
     .ring-box { position: relative; width: 74px; height: 74px; flex-shrink: 0; }
     .ring-box svg { transform: rotate(-90deg); width: 74px; height: 74px; }
@@ -127,7 +122,6 @@
       font-size: 14px; font-weight: 800; color: var(--text);
     }
     .ring-label span { font-size: 9.5px; font-weight: 600; color: var(--text-soft); }
-
     /* Page Swipe Bar */
     .swipe-bar {
       display: flex; justify-content: space-between; align-items: center;
@@ -137,13 +131,11 @@
     .swipe-dots { display: flex; gap: 6px; }
     .s-dot { width: 6px; height: 6px; border-radius: 999px; background: #d4d4d8; transition: 0.25s; }
     .s-dot.active { width: 20px; background: var(--accent); }
-
     /* Pages */
     .viewport { touch-action: pan-y; }
     .page { display: none; animation: floatIn 0.22s ease-out; }
     .page.active { display: block; }
     @keyframes floatIn { from { opacity: 0.4; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
     /* Week Scroller & Soft Switcher */
     .wk-pills {
       display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px;
@@ -166,7 +158,6 @@
       color: #ffffff;
       border-color: var(--text);
     }
-
     .wk-banner {
       display: flex; align-items: center; justify-content: space-between;
       background: #ffffff;
@@ -185,7 +176,6 @@
     .wk-info { text-align: center; }
     .wk-info .t { font-size: 14.5px; font-weight: 800; }
     .wk-info .p { font-size: 11.5px; font-weight: 600; color: var(--accent-dark); margin-top: 2px; }
-
     /* Fluid Session Cards (Soft Tints, No Hard Borders) */
     .sess-card {
       background: #ffffff;
@@ -199,22 +189,18 @@
     .sess-card.type-key { background: linear-gradient(180deg, #ffffff 0%, #fffaf5 100%); }
     .sess-card.type-rest { background: #f4f4f5; box-shadow: none; }
     .sess-card.done { background: var(--tint-sage); border-color: rgba(13, 148, 136, 0.2); }
-
     .sess-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
     .sess-day-lbl { font-size: 11.5px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.4px; }
     .sess-name { font-size: 16px; font-weight: 800; margin: 3px 0; letter-spacing: -0.2px; }
     .sess-target { font-size: 12.5px; font-weight: 700; color: var(--accent-dark); }
     .sess-card.type-key .sess-target { color: var(--coral); }
-
     .pill-tag {
       font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
     }
     .pt-key { background: var(--coral-soft); color: #c2410c; }
     .pt-easy { background: var(--tint-sky); color: #0369a1; }
     .pt-rest { background: #e4e4e7; color: #52525b; }
-
     .sess-body { font-size: 13px; color: var(--text-soft); line-height: 1.5; margin: 10px 0 12px; }
-
     /* Fast Manual Check + Quick Note */
     .action-strip { display: flex; gap: 8px; align-items: center; }
     .check-pill {
@@ -240,7 +226,6 @@
       border: none; background: var(--tint-teal); color: var(--accent-dark);
       font-size: 11.5px; font-weight: 800; cursor: pointer; white-space: nowrap;
     }
-
     /* Clean Form & Cards */
     .soft-card {
       background: #ffffff;
@@ -253,7 +238,6 @@
     .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
     .sc-title { font-size: 16px; font-weight: 800; margin: 0; letter-spacing: -0.2px; }
     .sc-sub { font-size: 12px; color: var(--text-soft); margin: 2px 0 0; }
-
     .f-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .f-group { display: flex; flex-direction: column; gap: 5px; }
     .f-group.full { grid-column: span 2; }
@@ -271,14 +255,12 @@
     .f-group input:focus, .f-group select:focus {
       outline: none; background: #ffffff; border-color: var(--accent);
     }
-
     .pace-pill-preview {
       display: flex; justify-content: space-between; align-items: center;
       background: var(--tint-teal); color: var(--accent-dark);
       padding: 10px 14px; border-radius: 14px;
       font-size: 13px; font-weight: 800; margin: 12px 0;
     }
-
     .btn-main {
       width: 100%; padding: 12px; border: none; border-radius: 999px;
       background: var(--accent); color: #ffffff;
@@ -290,7 +272,6 @@
       border: 1px solid #e4e4e7; background: #ffffff;
       color: var(--text); font-size: 12px; font-weight: 700; cursor: pointer;
     }
-
     /* Dropzone for CSV */
     .csv-drop {
       display: block;
@@ -305,7 +286,6 @@
       color: #0369a1;
     }
     .csv-drop input { display: none; }
-
     /* Log History Pills */
     .hist-item {
       background: var(--bg);
@@ -318,7 +298,6 @@
     .hist-badge { font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #ffffff; color: var(--text-soft); }
     .hist-stats { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12.5px; font-weight: 700; color: var(--accent-dark); margin-top: 6px; }
     .hist-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-size: 11.5px; color: var(--text-soft); }
-
     /* Target vs Actual Minimalist Bar Chart */
     .chart-legend { display: flex; gap: 14px; font-size: 11.5px; font-weight: 700; color: var(--text-soft); margin-bottom: 10px; }
     .c-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
@@ -333,7 +312,6 @@
     .bar-a.goal { background: #10b981; }
     .b-num { font-size: 10px; font-weight: 700; color: var(--text-soft); }
     .b-wk { font-size: 10.5px; font-weight: 700; color: var(--muted); }
-
     /* Minimalist Zone List */
     .zone-pill-row {
       display: flex; justify-content: space-between; align-items: center;
@@ -341,7 +319,6 @@
       margin-bottom: 8px;
     }
     .zone-pill-row.hl { background: var(--tint-teal); }
-
     /* Simulator Page */
     .sim-display {
       background: linear-gradient(135deg, #f0fdfa 0%, #fff7ed 100%);
@@ -352,7 +329,6 @@
     }
     .sim-time { font-size: 36px; font-weight: 900; letter-spacing: -1px; color: var(--text); }
     .sim-pace { font-size: 13px; font-weight: 700; color: var(--accent-dark); margin-top: 4px; }
-
     input[type="range"] {
       -webkit-appearance: none; width: 100%; height: 6px;
       background: #e4e4e7; border-radius: 999px; outline: none; margin: 10px 0;
@@ -362,7 +338,6 @@
       border-radius: 50%; background: var(--accent); cursor: pointer;
       box-shadow: 0 2px 8px rgba(13, 148, 136, 0.4);
     }
-
     .seg-toggle {
       display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
       background: var(--bg); padding: 4px; border-radius: 999px; margin: 12px 0;
@@ -372,14 +347,12 @@
       font-size: 12px; font-weight: 700; padding: 8px; border-radius: 999px; cursor: pointer;
     }
     .seg-btn.active { background: #ffffff; color: var(--text); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
-
     .cp-row {
       display: flex; justify-content: space-between; align-items: center;
       padding: 10px 14px; border-radius: 14px; background: var(--bg);
       margin-bottom: 7px; font-size: 13px;
     }
     .cp-row.finish { background: var(--tint-teal); font-weight: 800; color: var(--accent-dark); }
-
     /* Floating Pill Bottom Nav */
     .floating-nav-wrap {
       position: fixed;
@@ -415,7 +388,6 @@
       background: var(--text);
       color: #ffffff;
     }
-
     .toast {
       position: fixed; bottom: 86px; left: 50%; transform: translateX(-50%);
       background: var(--text); color: #ffffff;
@@ -437,7 +409,6 @@
       </div>
       <button id="installBtn" class="install-pill">+ Install</button>
     </header>
-
     <!-- Organic Summary Card + Ring -->
     <div class="hero-card">
       <div class="hero-metrics">
@@ -468,7 +439,6 @@
         <div class="ring-label" id="ringPctText">0%<span>pekan</span></div>
       </div>
     </div>
-
     <!-- Page Indicator -->
     <div class="swipe-bar">
       <span class="swipe-title" id="pageIndicatorLabel">Jadwal Latihan • Geser kiri/kanan</span>
@@ -479,13 +449,11 @@
         <span class="s-dot"></span>
       </div>
     </div>
-
     <!-- Swipeable Pages Container -->
     <main class="viewport" id="swipeArea">
       <!-- PAGE 0: JADWAL LATIHAN -->
       <section id="page-0" class="page active">
         <div class="wk-pills" id="wkPills"></div>
-
         <div class="wk-banner">
           <button class="circle-btn" id="prevWk" onclick="stepWeek(-1)">‹</button>
           <div class="wk-info">
@@ -494,10 +462,8 @@
           </div>
           <button class="circle-btn" id="nextWk" onclick="stepWeek(1)">›</button>
         </div>
-
         <div id="sessionContainer"></div>
       </section>
-
       <!-- PAGE 1: LOG DETAIL & IMPORT CSV -->
       <section id="page-1" class="page">
         <div class="soft-card">
@@ -508,7 +474,6 @@
             </div>
             <button class="btn-ghost" onclick="copyLastRun()">📋 Copy Laporan</button>
           </div>
-
           <form onsubmit="submitRunLog(event)">
             <div class="f-grid">
               <div class="f-group">
@@ -560,16 +525,13 @@
                 <input type="text" id="inNote" placeholder="mis. 3x4 mnt di 5:50/km, kaki aman" />
               </div>
             </div>
-
             <div class="pace-pill-preview">
               <span>Pace Otomatis</span>
               <span id="livePaceText">— /km</span>
             </div>
-
             <button type="submit" class="btn-main">Simpan ke Jurnal Lari</button>
           </form>
         </div>
-
         <div class="soft-card">
           <div class="sc-head">
             <div>
@@ -583,7 +545,6 @@
           </label>
           <p id="csvMsg" style="font-size:11.5px;color:var(--text-soft);margin:8px 0 0;text-align:center;">Data otomatis terdeteksi & disinkronkan ke grafik.</p>
         </div>
-
         <div class="soft-card">
           <div class="sc-head">
             <h2 class="sc-title">Riwayat Lari</h2>
@@ -592,7 +553,6 @@
           <div id="histList"></div>
         </div>
       </section>
-
       <!-- PAGE 2: GRAFIK TARGET VS AKTUAL -->
       <section id="page-2" class="page">
         <div class="soft-card">
@@ -609,7 +569,6 @@
           </div>
           <div class="bars-area" id="compBars"></div>
         </div>
-
         <div class="soft-card">
           <h2 class="sc-title" style="margin-bottom:10px;">Zona Pace & HR Acuan</h2>
           <div class="zone-pill-row">
@@ -630,7 +589,6 @@
           </div>
         </div>
       </section>
-
       <!-- PAGE 3: SIMULASI RACE SUB-2 HM -->
       <section id="page-3" class="page">
         <div class="soft-card">
@@ -640,28 +598,23 @@
               <p class="sc-sub">Atur target waktu & strategi pacing hari-H</p>
             </div>
           </div>
-
           <div class="sim-display">
             <div class="sim-time" id="simTimeBig">1:59:30</div>
             <div class="sim-pace" id="simPaceSub">Pace Rata-rata 5:40/km • Sub-2 Tercapai ✓</div>
           </div>
-
           <div class="f-group">
             <label>Geser Target Finish: <strong id="simMinLbl">119.5 menit</strong></label>
             <input type="range" id="simSlider" min="110" max="140" step="0.5" value="119.5" oninput="updateSimSlider(this.value)" />
           </div>
-
           <div class="seg-toggle">
             <button id="btnEven" class="seg-btn active" onclick="setSimStrat('even')">Even Pace (Konstan)</button>
             <button id="btnNeg" class="seg-btn" onclick="setSimStrat('negative')">Negative Split (Hemat Awal)</button>
           </div>
-
           <div id="simCheckpoints"></div>
         </div>
       </section>
     </main>
   </div>
-
   <!-- Floating Minimalist Pill Nav -->
   <div class="floating-nav-wrap">
     <nav class="floating-nav">
@@ -671,24 +624,19 @@
       <button class="f-tab" onclick="switchPage(3)"><span class="ic">⏱️</span><span>Simulasi</span></button>
     </nav>
   </div>
-
   <div class="toast" id="toast">Tersimpan</div>
-
   <script>
     // 1. 36-Week Roadmap Data
     const baseMon = new Date('2026-11-23T00:00:00');
     const weeks = [];
     const mNames = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
     const fmtShort = d => `${d.getDate()} ${mNames[d.getMonth()]}`;
-
     for (let w = 1; w <= 36; w++) {
       const s = new Date(baseMon); s.setDate(baseMon.getDate() + (w - 1) * 7);
       const e = new Date(s); e.setDate(s.getDate() + 6);
       const iso = s.toISOString().slice(0, 10);
-
       let phase = 'Blok 1 • Base & Intro Threshold';
       let targetKm = 32, lrKm = 12, thr = '3 × 4 mnt @ 5:45–6:00/km';
-
       if (w > 1 && w <= 9) {
         const deload = w % 4 === 0;
         targetKm = deload ? 25 : Math.min(38, 31 + w);
@@ -713,7 +661,6 @@
         lrKm = t === 1 ? 14 : t === 2 ? 10 : t === 3 ? 6 : 21.1;
         thr = t === 4 ? 'RACE DAY: Half Marathon 21,1 km (< 2:00:00)' : '3 × 1 km @ 5:38/km';
       }
-
       const sessions = w === 1 ? [
         { id: 'w1_wed', day: 'Rabu, 25 Nov', name: 'Easy Run (Selesai)', target: '6,02 km • 7:43/km • HR 148 bpm', type: 'easy', desc: 'Tercatat dari Strava pagi (05:46 WIB).' },
         { id: 'w1_thu', day: 'Kamis, 26 Nov', name: 'Intro Threshold', target: '~5 km • 3×4 mnt @ 5:45–6:00/km', type: 'key', desc: 'Pemanasan 1,5 km easy, 3 × 4 menit @ 5:45–6:00/km (jeda jog 2 mnt), pendinginan ~1 km.' },
@@ -730,10 +677,8 @@
         { id: `w${w}_sat`, day: 'Sabtu', name: w === 36 ? 'RACE DAY: Half Marathon' : 'Long Run Progresif', target: `${lrKm} km • ${w === 36 ? 'Target < 2:00:00' : '7:10–7:40/km'}`, type: 'key', desc: w === 36 ? 'Eksekusi strategi pacing Sub-2 HM!' : `Ketahanan aerobik ${lrKm} km; 2–3 km akhir steady.` },
         { id: `w${w}_sun`, day: 'Minggu', name: 'Easy Shakeout Jog', target: '4–5 km • 7:50–8:20/km', type: 'easy', desc: 'Jog sangat santai menutup pekan.' }
       ];
-
       weeks.push({ num: w, iso, title: `Minggu ${w} (${fmtShort(s)} – ${fmtShort(e)})`, short: `Mgg ${w}`, phase, targetKm, sessions });
     }
-
     // 2. State
     const seedLogs = [
       { id: 'st_1', date: '2026-11-25', type: 'Easy Run', dist: 6.02, durSec: 2787, paceSec: 463, avgHr: 148, maxHr: 160, rpe: '5 • Nyaman', gear: 'ASICS Novablast 5', note: 'Strava • GT 4', src: 'Strava' },
@@ -741,25 +686,21 @@
       { id: 'st_3', date: '2026-11-17', type: 'Tempo / HMP', dist: 5.02, durSec: 1848, paceSec: 368, avgHr: 164, maxHr: 179, rpe: '8 • Berat', gear: 'ASICS Novablast 5', note: 'Best 5K 6:08/km', src: 'Strava' },
       { id: 'st_4', date: '2026-11-14', type: 'Long Run', dist: 14.12, durSec: 6298, paceSec: 446, avgHr: 150, maxHr: 163, rpe: '6 • Steady', gear: 'ASICS Novablast 5', note: 'Long run 14.1 km', src: 'Strava' }
     ];
-
     let st = JSON.parse(localStorage.getItem('sub2_minimal_v3') || 'null');
     if (!st) {
       st = { wkIdx: 0, done: { w1_wed: true }, notes: { w1_wed: '6.02 km @ 7:43/km' }, logs: seedLogs };
       saveSt();
     }
-
     function saveSt() {
       localStorage.setItem('sub2_minimal_v3', JSON.stringify(st));
       refreshTopMetrics();
     }
-
     function toast(msg) {
       const el = document.getElementById('toast');
       el.textContent = msg;
       el.classList.add('show');
       setTimeout(() => el.classList.remove('show'), 2100);
     }
-
     // 3. Swipe & Page Navigation
     let curPage = 0;
     const pTitles = [
@@ -768,7 +709,6 @@
       'Grafik Target vs Aktual',
       'Simulasi Race Sub-2 HM'
     ];
-
     function switchPage(i) {
       if (i < 0 || i > 3) return;
       curPage = i;
@@ -780,7 +720,6 @@
       if (i === 3) renderSim();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
     let sx = 0, sy = 0;
     const sa = document.getElementById('swipeArea');
     sa.addEventListener('touchstart', e => {
@@ -798,7 +737,6 @@
       }
       sx = null;
     }, { passive: true });
-
     // 4. Week & Schedule Render
     function renderPills() {
       const box = document.getElementById('wkPills');
@@ -808,31 +746,26 @@
       const act = box.children[st.wkIdx];
       if (act) act.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
-
     function pickWeek(i) {
       st.wkIdx = i;
       saveSt();
       renderPills();
       renderSchedule();
     }
-
     function stepWeek(d) {
       const n = st.wkIdx + d;
       if (n >= 0 && n < weeks.length) pickWeek(n);
     }
-
     function toggleCheck(id) {
       st.done[id] = !st.done[id];
       saveSt();
       renderSchedule();
       toast(st.done[id] ? 'Selesai ✓' : 'Ceklis dibatalkan');
     }
-
     function editQuickNote(id, v) {
       st.notes[id] = v;
       saveSt();
     }
-
     function jumpToLog(name) {
       switchPage(1);
       const sel = document.getElementById('inType');
@@ -842,14 +775,12 @@
       else sel.value = 'Easy Run';
       document.getElementById('inDist').focus();
     }
-
     function renderSchedule() {
       const wk = weeks[st.wkIdx];
       document.getElementById('wkTitle').textContent = wk.title;
       document.getElementById('wkPhase').textContent = `${wk.phase} • Target ${wk.targetKm} km`;
       document.getElementById('prevWk').disabled = st.wkIdx === 0;
       document.getElementById('nextWk').disabled = st.wkIdx === weeks.length - 1;
-
       let doneCnt = 0;
       document.getElementById('sessionContainer').innerHTML = wk.sessions.map(s => {
         const isDone = !!st.done[s.id];
@@ -876,14 +807,12 @@
           </div>
         `;
       }).join('');
-
       // Update Ring
       const pct = Math.round((doneCnt / wk.sessions.length) * 100);
       const circ = 207.3;
       document.getElementById('ringFg').style.strokeDashoffset = circ - (circ * pct) / 100;
       document.getElementById('ringPctText').innerHTML = `${pct}%<span>pekan</span>`;
     }
-
     // 5. Log Detail + CSV Import
     const parseDur = str => {
       const p = String(str || '').trim().split(':').map(Number);
@@ -897,13 +826,11 @@
       const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = Math.round(sec%60);
       return h > 0 ? `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}` : `${m}:${String(s).padStart(2,'0')}`;
     };
-
     function calcLivePace() {
       const d = parseFloat(document.getElementById('inDist').value);
       const s = parseDur(document.getElementById('inDur').value);
       document.getElementById('livePaceText').textContent = (d > 0 && s > 0) ? `${fmtPace(s/d)} /km` : '— /km';
     }
-
     function submitRunLog(e) {
       e.preventDefault();
       const date = document.getElementById('inDate').value;
@@ -911,7 +838,6 @@
       const dist = parseFloat(document.getElementById('inDist').value);
       const durSec = parseDur(document.getElementById('inDur').value);
       if (!date || !(dist > 0) || !(durSec > 0)) return;
-
       st.logs.unshift({
         id: 'man_' + Date.now(),
         date, type,
@@ -934,14 +860,12 @@
       document.getElementById('livePaceText').textContent = '— /km';
       toast('Tersimpan ke jurnal ✓');
     }
-
     function removeLog(id) {
       st.logs = st.logs.filter(l => l.id !== id);
       saveSt();
       renderLogs();
       toast('Log dihapus');
     }
-
     function copyLastRun() {
       if (!st.logs.length) return;
       const l = st.logs[0];
@@ -949,7 +873,6 @@
       const txt = `Update Sesi (${l.date}) — ${l.type}: ${l.dist} km • ${fmtDur(l.durSec)} (${fmtPace(l.paceSec)}/km)${hr} | ${l.rpe}${l.note ? ` | ${l.note}` : ''}`;
       navigator.clipboard.writeText(txt).then(() => toast('Laporan sesi di-copy! Siap paste'));
     }
-
     function renderLogs() {
       document.getElementById('histCount').textContent = `${st.logs.length} sesi`;
       document.getElementById('histList').innerHTML = st.logs.slice(0, 25).map(l => `
@@ -973,7 +896,6 @@
         </div>
       `).join('');
     }
-
     function parseCsvRow(row) {
       const out = []; let cur = '', q = false;
       for (let i = 0; i < row.length; i++) {
@@ -985,21 +907,17 @@
       out.push(cur);
       return out;
     }
-
     function importStravaCsv(ev) {
       const f = ev.target.files[0];
       if (!f) return;
       const r = new FileReader();
       r.onload = e => {
-        const lines = e.target.result.split(/
-?
-/).filter(x => x.trim());
+        const lines = e.target.result.split(/\r?\n/).filter(x => x.trim());
         if (lines.length < 2) return;
         const h = parseCsvRow(lines[0]).map(x => x.trim());
         const iType = h.indexOf('Activity Type'), iDate = h.indexOf('Activity Date'), iDesc = h.indexOf('Activity Description');
         const iDist = h.indexOf('Distance'), iDistM = h.lastIndexOf('Distance.1'), iMove = h.indexOf('Moving Time');
         const iHr = h.indexOf('Average Heart Rate'), iMaxHr = h.indexOf('Max Heart Rate'), iGear = h.indexOf('Activity Gear'), iId = h.indexOf('Activity ID');
-
         const seen = new Set(st.logs.map(x => x.id));
         let added = 0;
         for (let i = 1; i < lines.length; i++) {
@@ -1009,14 +927,11 @@
           let dt = m ? m[1] : '';
           if (!dt && c[iDate]) { const p = new Date(c[iDate]); if (!isNaN(p)) dt = p.toISOString().slice(0, 10); }
           if (!dt) continue;
-
           const distKm = (iDistM > iDist && parseFloat(c[iDistM]) > 50) ? parseFloat(c[iDistM])/1000 : (parseFloat(c[iDist]) || 0);
           const durSec = parseFloat(c[iMove]) || 0;
           if (distKm <= 0.2 || durSec <= 30) continue;
-
           const id = c[iId] ? `strava_${c[iId]}` : `strava_${dt}_${distKm.toFixed(2)}`;
           if (seen.has(id)) continue;
-
           const paceSec = durSec / distKm;
           st.logs.push({
             id, date: dt,
@@ -1042,7 +957,6 @@
       };
       r.readAsText(f);
     }
-
     // 6. Target vs Actual Comparison
     function weekActualKm(iso) {
       const a = new Date(iso + 'T00:00:00'), b = new Date(a);
@@ -1051,14 +965,12 @@
       st.logs.forEach(l => { const d = new Date(l.date + 'T00:00:00'); if (d >= a && d < b) sum += Number(l.dist) || 0; });
       return Math.round(sum * 10) / 10;
     }
-
     function refreshTopMetrics() {
       const curWk = weeks[st.wkIdx];
       document.getElementById('hdrActualKm').textContent = `${weekActualKm(curWk.iso).toFixed(1)} km`;
       document.getElementById('hdrRunCount').textContent = `${st.logs.length}`;
       document.getElementById('hdrWeekTarget').textContent = `Target: ${curWk.targetKm} km`;
     }
-
     function renderComparison() {
       const slice = weeks.slice(0, 12);
       const max = 52;
@@ -1079,7 +991,6 @@
         `;
       }).join('');
     }
-
     // 7. Race Simulator
     let simMode = 'even';
     function setSimStrat(m) {
@@ -1098,7 +1009,6 @@
       const avgPace = totSec / 21.0975;
       document.getElementById('simTimeBig').textContent = fmtDur(totSec);
       document.getElementById('simPaceSub').textContent = `Pace Rata-rata ${fmtPace(avgPace)}/km • ${totSec < 7200 ? 'Sub-2 Tercapai ✓' : 'Di atas 2:00:00'}`;
-
       const cps = [5, 10, 15, 20, 21.0975];
       document.getElementById('simCheckpoints').innerHTML = cps.map((km, idx) => {
         let p = avgPace, c = avgPace * km;
@@ -1120,7 +1030,6 @@
         `;
       }).join('');
     }
-
     // 8. PWA
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
@@ -1135,7 +1044,6 @@
       defPrompt.prompt(); await defPrompt.userChoice;
       defPrompt = null; instBtn.style.display = 'none';
     });
-
     document.getElementById('inDate').value = new Date().toISOString().slice(0, 10);
     renderPills();
     renderSchedule();
