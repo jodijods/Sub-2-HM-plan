@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sub2-hm-plan-v1';
+const CACHE_NAME = 'sub2-hm-minimal-v3';
 const ASSETS = [
   './',
   './index.html',

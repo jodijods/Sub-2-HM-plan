@@ -3,562 +3,1145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="theme-color" content="#fafaf9" />
+  <meta name="color-scheme" content="light" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Sub-2 HM Plan" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Sub-2 HM" />
   <link rel="manifest" href="./manifest.json" />
-  <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230f172a'/><circle cx='256' cy='256' r='190' fill='none' stroke='%2338bdf8' stroke-width='24'/><text x='50%25' y='46%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='110' fill='%23ffffff'>SUB 2</text><text x='50%25' y='64%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='56' fill='%2338bdf8'>21.1 KM</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='140' fill='%230d9488'/><circle cx='256' cy='256' r='186' fill='none' stroke='%23ffffff' stroke-width='20' stroke-dasharray='880 180'/><text x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='104' fill='%23ffffff'>21.1</text><text x='50%25' y='63%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='48' fill='%23ccfbf1'>SUB-2 HM</text></svg>" />
   <title>Road to Sub-2 Half Marathon</title>
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --card-soft: #263349;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.14);
-      --green: #22c55e;
-      --green-soft: rgba(34, 197, 94, 0.15);
-      --amber: #f59e0b;
-      --amber-soft: rgba(245, 158, 11, 0.15);
-      --rose: #fb7185;
-      --border: rgba(148, 163, 184, 0.16);
+      --bg: #fafaf9;
+      --card: #ffffff;
+      --tint-teal: #f0fdfa;
+      --tint-peach: #fff7ed;
+      --tint-sky: #f0f9ff;
+      --tint-sage: #f2f8f5;
+      --text: #18181b;
+      --text-soft: #52525b;
+      --muted: #a1a1aa;
+      --accent: #0d9488;
+      --accent-dark: #0f766e;
+      --accent-soft: #ccfbf1;
+      --coral: #f97316;
+      --coral-soft: #ffedd5;
+      --border: rgba(24, 24, 27, 0.06);
+      --shadow-soft: 0 10px 30px -10px rgba(24, 24, 27, 0.07);
+      --shadow-float: 0 14px 34px -8px rgba(13, 148, 136, 0.22);
     }
+
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    html, body {
+      margin: 0; padding: 0;
       background: var(--bg);
       color: var(--text);
-      padding-bottom: 84px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Inter, sans-serif;
+      overscroll-behavior-x: none;
     }
-    .container { max-width: 540px; margin: 0 auto; padding: 16px; }
-    header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    body { padding-bottom: 102px; }
+
+    .wrap { max-width: 520px; margin: 0 auto; padding: 18px 16px; }
+
+    /* Minimalist Editorial Header (No Heavy Box) */
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      background: var(--tint-teal);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    .top-header h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin: 0 0 4px;
+      line-height: 1.2;
+    }
+    .gear-line {
+      font-size: 12.5px;
+      color: var(--text-soft);
+      margin: 0;
+    }
+    .install-pill {
+      display: none;
+      background: var(--text);
+      color: #ffffff;
+      border: none;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      white-space: nowrap;
+    }
+
+    /* Soft Organic Hero Summary Card with Progress Ring */
+    .hero-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 26px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .hero-metrics { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .hero-stat-row { display: flex; gap: 18px; }
+    .h-stat .num { font-size: 20px; font-weight: 800; letter-spacing: -0.4px; color: var(--text); }
+    .h-stat .lbl { font-size: 11.5px; color: var(--text-soft); margin-top: 1px; }
+    .hero-chip-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .soft-chip {
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      color: var(--text-soft);
+      border: 1px solid var(--border);
+    }
+
+    /* SVG Ring */
+    .ring-box { position: relative; width: 74px; height: 74px; flex-shrink: 0; }
+    .ring-box svg { transform: rotate(-90deg); width: 74px; height: 74px; }
+    .ring-bg { fill: none; stroke: #e4e4e7; stroke-width: 7; }
+    .ring-fg { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; transition: stroke-dashoffset 0.35s ease; }
+    .ring-label {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; color: var(--text);
+    }
+    .ring-label span { font-size: 9.5px; font-weight: 600; color: var(--text-soft); }
+
+    /* Page Swipe Bar */
+    .swipe-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px; padding: 0 4px;
+    }
+    .swipe-title { font-size: 12px; font-weight: 700; color: var(--text-soft); }
+    .swipe-dots { display: flex; gap: 6px; }
+    .s-dot { width: 6px; height: 6px; border-radius: 999px; background: #d4d4d8; transition: 0.25s; }
+    .s-dot.active { width: 20px; background: var(--accent); }
+
+    /* Pages */
+    .viewport { touch-action: pan-y; }
+    .page { display: none; animation: floatIn 0.22s ease-out; }
+    .page.active { display: block; }
+    @keyframes floatIn { from { opacity: 0.4; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Week Scroller & Soft Switcher */
+    .wk-pills {
+      display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px;
+      scrollbar-width: none;
+    }
+    .wk-pills::-webkit-scrollbar { display: none; }
+    .wk-pill {
+      flex: 0 0 auto;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text-soft);
+      font-size: 12px; font-weight: 700;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .wk-pill.active {
+      background: var(--text);
+      color: #ffffff;
+      border-color: var(--text);
+    }
+
+    .wk-banner {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-soft);
+    }
+    .circle-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: none; background: var(--bg); color: var(--text);
+      font-size: 18px; font-weight: 700; cursor: pointer;
+    }
+    .circle-btn:disabled { opacity: 0.3; }
+    .wk-info { text-align: center; }
+    .wk-info .t { font-size: 14.5px; font-weight: 800; }
+    .wk-info .p { font-size: 11.5px; font-weight: 600; color: var(--accent-dark); margin-top: 2px; }
+
+    /* Fluid Session Cards (Soft Tints, No Hard Borders) */
+    .sess-card {
+      background: #ffffff;
+      border-radius: 22px;
       padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+      transition: transform 0.15s, background 0.2s;
+    }
+    .sess-card.type-key { background: linear-gradient(180deg, #ffffff 0%, #fffaf5 100%); }
+    .sess-card.type-rest { background: #f4f4f5; box-shadow: none; }
+    .sess-card.done { background: var(--tint-sage); border-color: rgba(13, 148, 136, 0.2); }
+
+    .sess-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .sess-day-lbl { font-size: 11.5px; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.4px; }
+    .sess-name { font-size: 16px; font-weight: 800; margin: 3px 0; letter-spacing: -0.2px; }
+    .sess-target { font-size: 12.5px; font-weight: 700; color: var(--accent-dark); }
+    .sess-card.type-key .sess-target { color: var(--coral); }
+
+    .pill-tag {
+      font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+    }
+    .pt-key { background: var(--coral-soft); color: #c2410c; }
+    .pt-easy { background: var(--tint-sky); color: #0369a1; }
+    .pt-rest { background: #e4e4e7; color: #52525b; }
+
+    .sess-body { font-size: 13px; color: var(--text-soft); line-height: 1.5; margin: 10px 0 12px; }
+
+    /* Fast Manual Check + Quick Note */
+    .action-strip { display: flex; gap: 8px; align-items: center; }
+    .check-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 13px; border-radius: 999px;
+      border: 1px solid #e4e4e7;
+      background: var(--bg); color: var(--text);
+      font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap;
+    }
+    .sess-card.done .check-pill {
+      background: var(--accent); color: #ffffff; border-color: var(--accent);
+    }
+    .note-pill-input {
+      flex: 1; min-width: 0;
+      padding: 8px 13px; border-radius: 999px;
+      border: 1px solid #e4e4e7;
+      background: rgba(255,255,255,0.9);
+      font-size: 12px; color: var(--text);
+    }
+    .note-pill-input:focus { outline: none; border-color: var(--accent); }
+    .log-shortcut {
+      padding: 8px 11px; border-radius: 999px;
+      border: none; background: var(--tint-teal); color: var(--accent-dark);
+      font-size: 11.5px; font-weight: 800; cursor: pointer; white-space: nowrap;
+    }
+
+    /* Clean Form & Cards */
+    .soft-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+    }
+    .sc-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .sc-title { font-size: 16px; font-weight: 800; margin: 0; letter-spacing: -0.2px; }
+    .sc-sub { font-size: 12px; color: var(--text-soft); margin: 2px 0 0; }
+
+    .f-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .f-group { display: flex; flex-direction: column; gap: 5px; }
+    .f-group.full { grid-column: span 2; }
+    .f-group label { font-size: 11.5px; font-weight: 700; color: var(--text-soft); padding-left: 4px; }
+    .f-group input, .f-group select {
+      width: 100%;
+      padding: 10px 13px;
+      border-radius: 14px;
+      border: 1px solid #e4e4e7;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 13.5px;
+      font-family: inherit;
+    }
+    .f-group input:focus, .f-group select:focus {
+      outline: none; background: #ffffff; border-color: var(--accent);
+    }
+
+    .pace-pill-preview {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--tint-teal); color: var(--accent-dark);
+      padding: 10px 14px; border-radius: 14px;
+      font-size: 13px; font-weight: 800; margin: 12px 0;
+    }
+
+    .btn-main {
+      width: 100%; padding: 12px; border: none; border-radius: 999px;
+      background: var(--accent); color: #ffffff;
+      font-size: 14px; font-weight: 800; cursor: pointer;
+      box-shadow: 0 8px 20px -6px rgba(13, 148, 136, 0.45);
+    }
+    .btn-ghost {
+      padding: 7px 12px; border-radius: 999px;
+      border: 1px solid #e4e4e7; background: #ffffff;
+      color: var(--text); font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+
+    /* Dropzone for CSV */
+    .csv-drop {
+      display: block;
+      background: var(--tint-sky);
+      border: 1.5px dashed #7dd3fc;
+      border-radius: 18px;
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0369a1;
+    }
+    .csv-drop input { display: none; }
+
+    /* Log History Pills */
+    .hist-item {
+      background: var(--bg);
+      border-radius: 18px;
+      padding: 12px 14px;
+      margin-bottom: 9px;
+    }
+    .hist-top { display: flex; justify-content: space-between; align-items: center; }
+    .hist-title { font-size: 13px; font-weight: 800; }
+    .hist-badge { font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #ffffff; color: var(--text-soft); }
+    .hist-stats { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12.5px; font-weight: 700; color: var(--accent-dark); margin-top: 6px; }
+    .hist-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-size: 11.5px; color: var(--text-soft); }
+
+    /* Target vs Actual Minimalist Bar Chart */
+    .chart-legend { display: flex; gap: 14px; font-size: 11.5px; font-weight: 700; color: var(--text-soft); margin-bottom: 10px; }
+    .c-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; }
+    .bars-area {
+      display: flex; align-items: flex-end; gap: 10px;
+      height: 160px; overflow-x: auto; padding: 18px 4px 6px;
+    }
+    .b-col { flex: 0 0 46px; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+    .b-pair { display: flex; align-items: flex-end; gap: 4px; height: 110px; }
+    .bar-t { width: 14px; background: #e4e4e7; border-radius: 999px; }
+    .bar-a { width: 14px; background: var(--accent); border-radius: 999px; }
+    .bar-a.goal { background: #10b981; }
+    .b-num { font-size: 10px; font-weight: 700; color: var(--text-soft); }
+    .b-wk { font-size: 10.5px; font-weight: 700; color: var(--muted); }
+
+    /* Minimalist Zone List */
+    .zone-pill-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 11px 14px; border-radius: 16px; background: var(--bg);
+      margin-bottom: 8px;
+    }
+    .zone-pill-row.hl { background: var(--tint-teal); }
+
+    /* Simulator Page */
+    .sim-display {
+      background: linear-gradient(135deg, #f0fdfa 0%, #fff7ed 100%);
+      border-radius: 24px;
+      padding: 20px 16px;
+      text-align: center;
       margin-bottom: 14px;
     }
-    .badge-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .badge {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.4px;
-      padding: 4px 10px; border-radius: 999px;
-      background: var(--accent-soft); color: var(--accent);
-    }
-    .install-btn {
-      display: none;
-      font-size: 12px; font-weight: 700;
-      padding: 6px 12px; border-radius: 999px; border: none;
-      background: var(--green); color: #052e16; cursor: pointer;
-    }
-    h1 { font-size: 20px; margin: 10px 0 4px; line-height: 1.25; }
-    .sub { font-size: 12.5px; color: var(--muted); margin: 0; }
-    .kpi-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px;
-    }
-    .kpi {
-      background: rgba(15, 23, 42, 0.55);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 8px;
-      text-align: center;
-    }
-    .kpi .val { font-size: 16px; font-weight: 800; color: var(--text); }
-    .kpi .lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .sim-time { font-size: 36px; font-weight: 900; letter-spacing: -1px; color: var(--text); }
+    .sim-pace { font-size: 13px; font-weight: 700; color: var(--accent-dark); margin-top: 4px; }
 
-    .tabs {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
-      background: var(--card); padding: 5px; border-radius: 14px;
-      border: 1px solid var(--border); margin-bottom: 14px;
+    input[type="range"] {
+      -webkit-appearance: none; width: 100%; height: 6px;
+      background: #e4e4e7; border-radius: 999px; outline: none; margin: 10px 0;
     }
-    .tab-btn {
-      border: none; background: transparent; color: var(--muted);
-      font-weight: 700; font-size: 13px; padding: 9px 6px; border-radius: 10px;
-      cursor: pointer; transition: 0.15s;
-    }
-    .tab-btn.active { background: var(--accent); color: #082f49; }
-
-    .section { display: none; }
-    .section.active { display: block; }
-
-    .mode-switch {
-      display: flex; gap: 6px; margin-bottom: 12px;
-    }
-    .mode-pill {
-      flex: 1; font-size: 12px; font-weight: 700; padding: 8px;
-      border-radius: 10px; border: 1px solid var(--border);
-      background: var(--card); color: var(--muted); cursor: pointer;
-    }
-    .mode-pill.active {
-      border-color: var(--accent); color: var(--accent); background: var(--accent-soft);
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 22px; height: 22px;
+      border-radius: 50%; background: var(--accent); cursor: pointer;
+      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.4);
     }
 
-    .progress-bar-wrap {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 12px 14px; margin-bottom: 12px;
+    .seg-toggle {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+      background: var(--bg); padding: 4px; border-radius: 999px; margin: 12px 0;
     }
-    .progress-head { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
-    .bar-bg { height: 8px; background: #0f172a; border-radius: 999px; overflow: hidden; }
-    .bar-fill { height: 100%; background: var(--green); width: 0%; transition: width 0.25s; }
+    .seg-btn {
+      border: none; background: transparent; color: var(--text-soft);
+      font-size: 12px; font-weight: 700; padding: 8px; border-radius: 999px; cursor: pointer;
+    }
+    .seg-btn.active { background: #ffffff; color: var(--text); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
 
-    .day-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 15px; padding: 13px 14px; margin-bottom: 10px;
-      transition: border-color 0.2s;
-    }
-    .day-card.done { border-color: rgba(34, 197, 94, 0.5); background: rgba(30, 41, 59, 0.72); }
-    .day-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-    .day-title { font-size: 14.5px; font-weight: 800; margin: 0; }
-    .day-meta { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-top: 2px; }
-    .tag {
-      font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 999px; white-space: nowrap;
-    }
-    .tag-key { background: var(--amber-soft); color: var(--amber); }
-    .tag-easy { background: var(--accent-soft); color: var(--accent); }
-    .tag-rest { background: var(--green-soft); color: var(--green); }
-    .day-desc { font-size: 13px; color: #cbd5e1; line-height: 1.45; margin: 8px 0 10px; }
-    .day-actions { display: flex; gap: 8px; align-items: center; }
-    .check-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 12px; font-weight: 700; padding: 7px 11px;
-      border-radius: 9px; border: 1px solid var(--border);
-      background: #0f172a; color: var(--text); cursor: pointer;
-    }
-    .day-card.done .check-btn { background: var(--green); color: #052e16; border-color: var(--green); }
-    .note-input {
-      flex: 1; font-size: 12px; padding: 7px 10px; border-radius: 9px;
-      border: 1px solid var(--border); background: #0f172a; color: var(--text);
-    }
-    .note-input::placeholder { color: #64748b; }
-
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 15px; padding: 14px; margin-bottom: 12px;
-    }
-    .card h2 { font-size: 15px; margin: 0 0 10px; }
-    .zone-row {
+    .cp-row {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px;
+      padding: 10px 14px; border-radius: 14px; background: var(--bg);
+      margin-bottom: 7px; font-size: 13px;
     }
-    .zone-row:last-child { border-bottom: none; }
-    .zone-name { font-weight: 700; }
-    .zone-sub { font-size: 11.5px; color: var(--muted); }
-    .zone-val { text-align: right; font-weight: 800; color: var(--accent); font-size: 13px; }
+    .cp-row.finish { background: var(--tint-teal); font-weight: 800; color: var(--accent-dark); }
 
-    .calc-row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
-    .calc-row input {
-      width: 100%; padding: 9px 10px; border-radius: 10px;
-      border: 1px solid var(--border); background: #0f172a; color: var(--text); font-size: 14px; font-weight: 700;
+    /* Floating Pill Bottom Nav */
+    .floating-nav-wrap {
+      position: fixed;
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      left: 16px; right: 16px;
+      display: flex; justify-content: center;
+      z-index: 60;
+      pointer-events: none;
     }
-    .split-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .split-box {
-      background: #0f172a; border: 1px solid var(--border); border-radius: 10px; padding: 9px 10px;
+    .floating-nav {
+      pointer-events: auto;
+      width: 100%; max-width: 480px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(24, 24, 27, 0.08);
+      border-radius: 999px;
+      padding: 6px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      box-shadow: var(--shadow-float);
     }
-    .split-box .k { font-size: 11px; color: var(--muted); }
-    .split-box .v { font-size: 14px; font-weight: 800; color: var(--green); margin-top: 2px; }
+    .f-tab {
+      border: none; background: transparent; color: var(--text-soft);
+      border-radius: 999px;
+      padding: 8px 4px;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      font-size: 10.5px; font-weight: 700; cursor: pointer;
+      transition: 0.2s;
+    }
+    .f-tab .ic { font-size: 16px; line-height: 1; }
+    .f-tab.active {
+      background: var(--text);
+      color: #ffffff;
+    }
 
-    .phase-item {
-      border-left: 3px solid var(--accent); padding-left: 11px; margin-bottom: 12px;
+    .toast {
+      position: fixed; bottom: 86px; left: 50%; transform: translateX(-50%);
+      background: var(--text); color: #ffffff;
+      padding: 9px 16px; border-radius: 999px;
+      font-size: 12px; font-weight: 700;
+      opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 100;
     }
-    .phase-item:last-child { margin-bottom: 0; }
-    .phase-title { font-size: 13.5px; font-weight: 800; }
-    .phase-time { font-size: 11.5px; color: var(--amber); font-weight: 700; margin: 2px 0 4px; }
-    .phase-desc { font-size: 12.5px; color: #cbd5e1; line-height: 1.4; }
-    .chart-bars { display: flex; align-items: flex-end; gap: 6px; height: 110px; padding-top: 12px; }
-    .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .bar-stick { width: 100%; border-radius: 6px 6px 0 0; background: var(--accent); min-height: 6px; }
-    .bar-stick.proj { background: var(--green); opacity: 0.85; }
-    .bar-lbl { font-size: 10px; color: var(--muted); }
-    .bar-num { font-size: 10px; font-weight: 700; }
+    .toast.show { opacity: 1; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="badge-row">
-        <span class="badge">TARGET: SUB-2 HM (AGUSTUS 2027)</span>
-        <button id="installBtn" class="install-btn">+ Install App</button>
+  <div class="wrap">
+    <!-- Minimalist Top Header -->
+    <header class="top-header">
+      <div>
+        <div class="eyebrow">● SUB-2 HALF MARATHON • AGU 2027</div>
+        <h1>Running Journal</h1>
+        <p class="gear-line">HUAWEI WATCH GT 4 • ASICS Novablast 5 • Senin Rest</p>
       </div>
-      <h1>Road to Sub-2 Half Marathon</h1>
-      <p class="sub">HUAWEI WATCH GT 4 • ASICS Novablast 5 • Senin Rest Day</p>
-      <div class="kpi-grid">
-        <div class="kpi">
-          <div class="val">5:41/km</div>
-          <div class="lbl">Pace Sub-2 HM</div>
-        </div>
-        <div class="kpi">
-          <div class="val">~36 Mgg</div>
-          <div class="lbl">Menuju Agu 2027</div>
-        </div>
-        <div class="kpi">
-          <div class="val">Senin</div>
-          <div class="lbl">Rest Day Rutin</div>
-        </div>
-      </div>
+      <button id="installBtn" class="install-pill">+ Install</button>
     </header>
 
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('jadwal', this)">Jadwal</button>
-      <button class="tab-btn" onclick="switchTab('zona', this)">Zona & Split</button>
-      <button class="tab-btn" onclick="switchTab('roadmap', this)">Roadmap</button>
-    </div>
-
-    <!-- TAB JADWAL -->
-    <div id="tab-jadwal" class="section active">
-      <div class="mode-switch">
-        <button id="modeCurrent" class="mode-pill active" onclick="setMode('current')">Sisa Pekan Ini (26–30 Nov)</button>
-        <button id="modeWeekly" class="mode-pill" onclick="setMode('weekly')">Pola Standar 7 Hari</button>
-      </div>
-
-      <div class="progress-bar-wrap">
-        <div class="progress-head">
-          <span id="progLabel">Progres Pekan Ini</span>
-          <span id="progPct">0%</span>
-        </div>
-        <div class="bar-bg"><div id="progFill" class="bar-fill"></div></div>
-      </div>
-
-      <div id="scheduleList"></div>
-    </div>
-
-    <!-- TAB ZONA & SPLIT -->
-    <div id="tab-zona" class="section">
-      <div class="card">
-        <h2>Zona Pace & Heart Rate Acuan</h2>
-        <div class="zone-row">
-          <div>
-            <div class="zone-name">Easy / Recovery Run</div>
-            <div class="zone-sub">80% porsi mingguan, napas santai</div>
+    <!-- Organic Summary Card + Ring -->
+    <div class="hero-card">
+      <div class="hero-metrics">
+        <div class="hero-stat-row">
+          <div class="h-stat">
+            <div class="num">5:41/km</div>
+            <div class="lbl">Goal Pace</div>
           </div>
-          <div class="zone-val">7:35 – 8:10/km<br><span class="zone-sub">HR &lt; 150 bpm</span></div>
-        </div>
-        <div class="zone-row">
-          <div>
-            <div class="zone-name">Steady / Long Run</div>
-            <div class="zone-sub">Ketahanan aerobik durasi panjang</div>
+          <div class="h-stat">
+            <div class="num" id="hdrActualKm">6.0 km</div>
+            <div class="lbl">Aktual Mgg 1</div>
           </div>
-          <div class="zone-val">7:00 – 7:35/km<br><span class="zone-sub">HR 148 – 156 bpm</span></div>
-        </div>
-        <div class="zone-row">
-          <div>
-            <div class="zone-name">Intro Threshold (Blok 1)</div>
-            <div class="zone-sub">Cruise intervals 3–4 menit</div>
+          <div class="h-stat">
+            <div class="num" id="hdrRunCount">4</div>
+            <div class="lbl">Sesi Log</div>
           </div>
-          <div class="zone-val">5:45 – 6:00/km<br><span class="zone-sub">HR 160 – 170 bpm</span></div>
         </div>
-        <div class="zone-row">
-          <div>
-            <div class="zone-name">Goal Pace Sub-2 HM</div>
-            <div class="zone-sub">Target race 21,1 km &lt; 2:00:00</div>
-          </div>
-          <div class="zone-val">5:38 – 5:41/km<br><span class="zone-sub">HR 164 – 174 bpm</span></div>
+        <div class="hero-chip-row">
+          <span class="soft-chip">36 Minggu Roadmap</span>
+          <span class="soft-chip" id="hdrWeekTarget">Target: 32 km</span>
         </div>
       </div>
-
-      <div class="card">
-        <h2>Kalkulator Split Half Marathon (21,1 km)</h2>
-        <div class="calc-row">
-          <div style="flex:1">
-            <label style="font-size:11.5px;color:var(--muted);display:block;margin-bottom:4px;">Target Waktu (Menit) — Sub-2 = 119.5 mnt</label>
-            <input id="targetMin" type="number" step="0.5" value="119.5" oninput="calcSplits()" />
-          </div>
-        </div>
-        <div class="split-grid" id="splitGrid"></div>
+      <div class="ring-box">
+        <svg viewBox="0 0 80 80">
+          <circle class="ring-bg" cx="40" cy="40" r="33"></circle>
+          <circle class="ring-fg" id="ringFg" cx="40" cy="40" r="33" stroke-dasharray="207.3" stroke-dashoffset="207.3"></circle>
+        </svg>
+        <div class="ring-label" id="ringPctText">0%<span>pekan</span></div>
       </div>
     </div>
 
-    <!-- TAB ROADMAP -->
-    <div id="tab-roadmap" class="section">
-      <div class="card">
-        <h2>Tren & Proyeksi Volume Mingguan (km)</h2>
-        <div class="chart-bars" id="volumeChart"></div>
-        <p style="font-size:11.5px;color:var(--muted);margin:8px 0 0;">Biru = riwayat Strava terakhir • Hijau = proyeksi bertahap Blok 1–3</p>
-      </div>
-
-      <div class="card">
-        <h2>Peta Jalan 36 Minggu (Nov 2026 – Agu 2027)</h2>
-        <div class="phase-item">
-          <div class="phase-title">Blok 1: Base & Intro Threshold</div>
-          <div class="phase-time">Minggu 1–9 (Akhir Nov 2026 – Jan 2027) • 28–38 km/mgg</div>
-          <div class="phase-desc">Stabilkan frekuensi 4–5x lari/minggu (Senin rest), long run 12–16 km, dan cruise intervals 3–4 menit di 5:45–6:00/km.</div>
-        </div>
-        <div class="phase-item">
-          <div class="phase-title">Blok 2: Threshold & Speed Endurance</div>
-          <div class="phase-time">Minggu 10–19 (Feb – Awal Apr 2027) • 38–48 km/mgg</div>
-          <div class="phase-desc">Perpanjang tempo/cruise ke 5–8 menit atau 4–6 km di 5:25–5:40/km, long run 16–19 km dengan finish lebih cepat.</div>
-        </div>
-        <div class="phase-item">
-          <div class="phase-title">Blok 3: Race Specificity Sub-2 HM</div>
-          <div class="phase-time">Minggu 20–32 (Mid Apr – Awal Jul 2027) • 45–52 km/mgg</div>
-          <div class="phase-desc">Blok Half Marathon Pace (2×3 km atau 6–8 km di 5:38–5:41/km), long run puncak 18–22 km, dan simulasi fueling/gel.</div>
-        </div>
-        <div class="phase-item">
-          <div class="phase-title">Blok 4: Taper & Race Week</div>
-          <div class="phase-time">Minggu 33–36 (Jul – Agustus 2027) • Turun bertahap</div>
-          <div class="phase-desc">Pangkas volume 30–50% sambil menjaga sentuhan pace 5:40/km pendek agar kaki segar saat hari-H.</div>
-        </div>
+    <!-- Page Indicator -->
+    <div class="swipe-bar">
+      <span class="swipe-title" id="pageIndicatorLabel">Jadwal Latihan • Geser kiri/kanan</span>
+      <div class="swipe-dots" id="swipeDots">
+        <span class="s-dot active"></span>
+        <span class="s-dot"></span>
+        <span class="s-dot"></span>
+        <span class="s-dot"></span>
       </div>
     </div>
+
+    <!-- Swipeable Pages Container -->
+    <main class="viewport" id="swipeArea">
+      <!-- PAGE 0: JADWAL LATIHAN -->
+      <section id="page-0" class="page active">
+        <div class="wk-pills" id="wkPills"></div>
+
+        <div class="wk-banner">
+          <button class="circle-btn" id="prevWk" onclick="stepWeek(-1)">‹</button>
+          <div class="wk-info">
+            <div class="t" id="wkTitle">Minggu 1 (23–30 Nov)</div>
+            <div class="p" id="wkPhase">Blok 1: Base & Intro Threshold • 32 km</div>
+          </div>
+          <button class="circle-btn" id="nextWk" onclick="stepWeek(1)">›</button>
+        </div>
+
+        <div id="sessionContainer"></div>
+      </section>
+
+      <!-- PAGE 1: LOG DETAIL & IMPORT CSV -->
+      <section id="page-1" class="page">
+        <div class="soft-card">
+          <div class="sc-head">
+            <div>
+              <h2 class="sc-title">Catat Hasil Lari</h2>
+              <p class="sc-sub">Detail metrik dari GT 4 atau Strava</p>
+            </div>
+            <button class="btn-ghost" onclick="copyLastRun()">📋 Copy Laporan</button>
+          </div>
+
+          <form onsubmit="submitRunLog(event)">
+            <div class="f-grid">
+              <div class="f-group">
+                <label>Tanggal</label>
+                <input type="date" id="inDate" required />
+              </div>
+              <div class="f-group">
+                <label>Sesi</label>
+                <select id="inType">
+                  <option value="Intro Threshold">Intro Threshold</option>
+                  <option value="Easy Run">Easy Run</option>
+                  <option value="Long Run">Long Run</option>
+                  <option value="Tempo / HMP">Tempo / HMP</option>
+                  <option value="Recovery Jog">Recovery Jog</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label>Jarak (km)</label>
+                <input type="number" step="0.01" id="inDist" placeholder="5.50" oninput="calcLivePace()" required />
+              </div>
+              <div class="f-group">
+                <label>Durasi (mm:ss)</label>
+                <input type="text" id="inDur" placeholder="32:15" oninput="calcLivePace()" required />
+              </div>
+              <div class="f-group">
+                <label>Avg HR (bpm)</label>
+                <input type="number" id="inAvgHr" placeholder="160" />
+              </div>
+              <div class="f-group">
+                <label>Max HR (bpm)</label>
+                <input type="number" id="inMaxHr" placeholder="172" />
+              </div>
+              <div class="f-group">
+                <label>RPE / Rasa Kaki</label>
+                <select id="inRpe">
+                  <option value="4 • Ringan">4 • Ringan</option>
+                  <option value="5 • Nyaman">5 • Nyaman</option>
+                  <option value="6 • Steady">6 • Steady</option>
+                  <option value="7 • Threshold" selected>7 • Threshold</option>
+                  <option value="8 • Berat">8 • Berat</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label>Sepatu</label>
+                <input type="text" id="inGear" value="ASICS Novablast 5" />
+              </div>
+              <div class="f-group full">
+                <label>Catatan Split / Kondisi</label>
+                <input type="text" id="inNote" placeholder="mis. 3x4 mnt di 5:50/km, kaki aman" />
+              </div>
+            </div>
+
+            <div class="pace-pill-preview">
+              <span>Pace Otomatis</span>
+              <span id="livePaceText">— /km</span>
+            </div>
+
+            <button type="submit" class="btn-main">Simpan ke Jurnal Lari</button>
+          </form>
+        </div>
+
+        <div class="soft-card">
+          <div class="sc-head">
+            <div>
+              <h2 class="sc-title">Import CSV Strava</h2>
+              <p class="sc-sub">Gabungkan arsip activities.csv tanpa hapus log manual</p>
+            </div>
+          </div>
+          <label class="csv-drop">
+            📂 Ketuk untuk pilih file <strong>activities.csv</strong>
+            <input type="file" accept=".csv,text/csv" onchange="importStravaCsv(event)" />
+          </label>
+          <p id="csvMsg" style="font-size:11.5px;color:var(--text-soft);margin:8px 0 0;text-align:center;">Data otomatis terdeteksi & disinkronkan ke grafik.</p>
+        </div>
+
+        <div class="soft-card">
+          <div class="sc-head">
+            <h2 class="sc-title">Riwayat Lari</h2>
+            <span id="histCount" style="font-size:12px;font-weight:700;color:var(--accent-dark);">0 sesi</span>
+          </div>
+          <div id="histList"></div>
+        </div>
+      </section>
+
+      <!-- PAGE 2: GRAFIK TARGET VS AKTUAL -->
+      <section id="page-2" class="page">
+        <div class="soft-card">
+          <div class="sc-head">
+            <div>
+              <h2 class="sc-title">Target vs Aktual (km)</h2>
+              <p class="sc-sub">Geser grafik ke samping untuk cek pekan lain</p>
+            </div>
+          </div>
+          <div class="chart-legend">
+            <span><i class="c-dot" style="background:#e4e4e7"></i>Target</span>
+            <span><i class="c-dot" style="background:#0d9488"></i>Aktual</span>
+            <span><i class="c-dot" style="background:#10b981"></i>Tercapai (≥90%)</span>
+          </div>
+          <div class="bars-area" id="compBars"></div>
+        </div>
+
+        <div class="soft-card">
+          <h2 class="sc-title" style="margin-bottom:10px;">Zona Pace & HR Acuan</h2>
+          <div class="zone-pill-row">
+            <div><strong>Easy / Recovery</strong><div style="font-size:11.5px;color:var(--text-soft);">80% porsi lari santai</div></div>
+            <div style="text-align:right;"><strong>7:35–8:10/km</strong><div style="font-size:11.5px;color:var(--text-soft);">&lt; 150 bpm</div></div>
+          </div>
+          <div class="zone-pill-row">
+            <div><strong>Steady Long Run</strong><div style="font-size:11.5px;color:var(--text-soft);">Ketahanan aerobik</div></div>
+            <div style="text-align:right;"><strong>7:00–7:35/km</strong><div style="font-size:11.5px;color:var(--text-soft);">148–156 bpm</div></div>
+          </div>
+          <div class="zone-pill-row">
+            <div><strong>Intro Threshold</strong><div style="font-size:11.5px;color:var(--text-soft);">Cruise intervals 3–4 mnt</div></div>
+            <div style="text-align:right;"><strong>5:45–6:00/km</strong><div style="font-size:11.5px;color:var(--text-soft);">160–170 bpm</div></div>
+          </div>
+          <div class="zone-pill-row hl">
+            <div><strong>Sub-2 HM Goal Pace</strong><div style="font-size:11.5px;color:var(--accent-dark);">Target Agustus 2027</div></div>
+            <div style="text-align:right;color:var(--accent-dark);"><strong>5:38–5:41/km</strong><div style="font-size:11.5px;">164–174 bpm</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 3: SIMULASI RACE SUB-2 HM -->
+      <section id="page-3" class="page">
+        <div class="soft-card">
+          <div class="sc-head">
+            <div>
+              <h2 class="sc-title">Simulasi Race 21,1 KM</h2>
+              <p class="sc-sub">Atur target waktu & strategi pacing hari-H</p>
+            </div>
+          </div>
+
+          <div class="sim-display">
+            <div class="sim-time" id="simTimeBig">1:59:30</div>
+            <div class="sim-pace" id="simPaceSub">Pace Rata-rata 5:40/km • Sub-2 Tercapai ✓</div>
+          </div>
+
+          <div class="f-group">
+            <label>Geser Target Finish: <strong id="simMinLbl">119.5 menit</strong></label>
+            <input type="range" id="simSlider" min="110" max="140" step="0.5" value="119.5" oninput="updateSimSlider(this.value)" />
+          </div>
+
+          <div class="seg-toggle">
+            <button id="btnEven" class="seg-btn active" onclick="setSimStrat('even')">Even Pace (Konstan)</button>
+            <button id="btnNeg" class="seg-btn" onclick="setSimStrat('negative')">Negative Split (Hemat Awal)</button>
+          </div>
+
+          <div id="simCheckpoints"></div>
+        </div>
+      </section>
+    </main>
   </div>
 
+  <!-- Floating Minimalist Pill Nav -->
+  <div class="floating-nav-wrap">
+    <nav class="floating-nav">
+      <button class="f-tab active" onclick="switchPage(0)"><span class="ic">🗓️</span><span>Jadwal</span></button>
+      <button class="f-tab" onclick="switchPage(1)"><span class="ic">✍️</span><span>Log & CSV</span></button>
+      <button class="f-tab" onclick="switchPage(2)"><span class="ic">📊</span><span>Progres</span></button>
+      <button class="f-tab" onclick="switchPage(3)"><span class="ic">⏱️</span><span>Simulasi</span></button>
+    </nav>
+  </div>
+
+  <div class="toast" id="toast">Tersimpan</div>
+
   <script>
-    const plans = {
-      current: [
-        {
-          id: 'thu_26',
-          day: 'Kamis, 26 Nov',
-          title: 'Intro Threshold (Cruise Intervals)',
-          meta: '~5 km • Pace Inti 5:45–6:00/km • HR 160–170 bpm',
-          tag: 'Sesi Kunci',
-          tagClass: 'tag-key',
-          desc: 'Pemanasan 1,5 km easy, lanjut 3 × 4 menit di pace 5:45–6:00/km (recovery jog pelan 2 menit tiap set), pendinginan sampai ~5 km.'
-        },
-        {
-          id: 'fri_27',
-          day: 'Jumat, 27 Nov',
-          title: 'Easy Recovery Run',
-          meta: '5 km • Pace 7:45–8:10/km • HR < 150 bpm',
-          tag: 'Easy',
-          tagClass: 'tag-easy',
-          desc: 'Lari santai buat buang sisa pegal sesi Kamis. Jaga ritme tetap ringan dan terkontrol.'
-        },
-        {
-          id: 'sat_28',
-          day: 'Sabtu, 28 Nov',
-          title: 'Endurance Long Run',
-          meta: '12 km • 10 km @ 7:20–7:45 + 2 km @ 6:50–7:10/km',
-          tag: 'Long Run',
-          tagClass: 'tag-key',
-          desc: '10 km pertama di pace nyaman (HR ~148–155 bpm), 2 km terakhir naik sedikit ke steady bila kaki terasa enak.'
-        },
-        {
-          id: 'sun_29',
-          day: 'Minggu, 29 Nov',
-          title: 'Easy Jog / Optional Rest',
-          meta: '4 km • Pace 7:50–8:20/km • HR < 145 bpm',
-          tag: 'Recovery',
-          tagClass: 'tag-easy',
-          desc: 'Jog ringan 4 km untuk menjaga konsistensi mingguan. Boleh rest penuh jika kaki masih pegal.'
-        },
-        {
-          id: 'mon_30',
-          day: 'Senin, 30 Nov',
-          title: 'Rest Day Rutin',
-          meta: '0 km • Istirahat Total / Mobility Ringan',
-          tag: 'Rest Day',
-          tagClass: 'tag-rest',
-          desc: 'Pemulihan otot dan tendon sebelum masuk pola penuh pekan berikutnya.'
-        }
-      ],
-      weekly: [
-        {
-          id: 'wk_mon',
-          day: 'Senin',
-          title: 'Rest Day Rutin',
-          meta: '0 km • Pemulihan Penuh',
-          tag: 'Rest Day',
-          tagClass: 'tag-rest',
-          desc: 'Hari libur lari wajib untuk regenerasi fisik dan menjaga konsistensi jangka panjang.'
-        },
-        {
-          id: 'wk_tue',
-          day: 'Selasa',
-          title: 'Easy Run + Strides',
-          meta: '5,5 km • Easy 7:40–8:05/km + 4×20 dtk Strides',
-          tag: 'Easy + Speed',
-          tagClass: 'tag-easy',
-          desc: '5 km lari santai ditutup 4×20 detik akselerasi cepat namun rileks dengan jeda jalan/jog 40 detik.'
-        },
-        {
-          id: 'wk_wed',
-          day: 'Rabu',
-          title: 'Rest / Mobility Ringan',
-          meta: '0 km • Stretching / Core 20 Menit',
-          tag: 'Rest / Core',
-          tagClass: 'tag-rest',
-          desc: 'Jeda tengah pekan agar kaki segar menghadapi sesi threshold Kamis.'
-        },
-        {
-          id: 'wk_thu',
-          day: 'Kamis',
-          title: 'Threshold / Cruise Intervals',
-          meta: '5,5–6 km • Pace Inti 5:45–6:00/km (Bertahap ke 5:35)',
-          tag: 'Sesi Kunci',
-          tagClass: 'tag-key',
-          desc: 'Pemanasan 1,5 km, lanjut 3–4 × 4–5 menit threshold (jeda jog 2 menit), pendinginan 1 km.'
-        },
-        {
-          id: 'wk_fri',
-          day: 'Jumat',
-          title: 'Easy Recovery Run',
-          meta: '5 km • Pace 7:45–8:10/km • HR < 150 bpm',
-          tag: 'Easy',
-          tagClass: 'tag-easy',
-          desc: 'Lari pemulihan berintensitas rendah tanpa mengejar pace.'
-        },
-        {
-          id: 'wk_sat',
-          day: 'Sabtu',
-          title: 'Long Run Progresif',
-          meta: '12–16 km • Pace 7:15–7:45/km',
-          tag: 'Long Run',
-          tagClass: 'tag-key',
-          desc: 'Fondasi daya tahan utama menuju 21,1 km; 2–3 km terakhir bisa ditutup di pace steady.'
-        },
-        {
-          id: 'wk_sun',
-          day: 'Minggu',
-          title: 'Easy Shakeout Jog',
-          meta: '4–5 km • Pace 7:50–8:20/km',
-          tag: 'Recovery',
-          tagClass: 'tag-easy',
-          desc: 'Lari sangat santai sebelum Senin rest day.'
-        }
-      ]
-    };
+    // 1. 36-Week Roadmap Data
+    const baseMon = new Date('2026-11-23T00:00:00');
+    const weeks = [];
+    const mNames = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+    const fmtShort = d => `${d.getDate()} ${mNames[d.getMonth()]}`;
 
-    let currentMode = 'current';
-    let state = JSON.parse(localStorage.getItem('sub2_hm_state_v1') || '{"done":{},"notes":{}}');
+    for (let w = 1; w <= 36; w++) {
+      const s = new Date(baseMon); s.setDate(baseMon.getDate() + (w - 1) * 7);
+      const e = new Date(s); e.setDate(s.getDate() + 6);
+      const iso = s.toISOString().slice(0, 10);
 
-    function saveState() {
-      localStorage.setItem('sub2_hm_state_v1', JSON.stringify(state));
+      let phase = 'Blok 1 • Base & Intro Threshold';
+      let targetKm = 32, lrKm = 12, thr = '3 × 4 mnt @ 5:45–6:00/km';
+
+      if (w > 1 && w <= 9) {
+        const deload = w % 4 === 0;
+        targetKm = deload ? 25 : Math.min(38, 31 + w);
+        lrKm = deload ? 10 : Math.min(16, 11 + Math.floor(w * 0.7));
+        thr = w <= 3 ? '3 × 4 mnt @ 5:45–6:00/km' : '4 × 4 mnt @ 5:40–5:55/km';
+      } else if (w >= 10 && w <= 19) {
+        phase = 'Blok 2 • Threshold & Speed Endurance';
+        const deload = w % 4 === 0;
+        targetKm = deload ? 30 : Math.min(46, 36 + (w - 9));
+        lrKm = deload ? 12 : Math.min(19, 14 + Math.floor((w - 9) * 0.6));
+        thr = w <= 14 ? '3 × 6 mnt @ 5:35–5:48/km' : 'Tempo 4–5 km @ 5:30–5:42/km';
+      } else if (w >= 20 && w <= 32) {
+        phase = 'Blok 3 • Race Specificity Sub-2 HM';
+        const deload = w % 4 === 0;
+        targetKm = deload ? 34 : Math.min(50, 42 + Math.floor((w - 19) * 0.7));
+        lrKm = deload ? 14 : Math.min(22, 16 + Math.floor((w - 19) * 0.5));
+        thr = '2 × 3 km / 6 km @ Goal Pace 5:38–5:41/km';
+      } else if (w >= 33) {
+        phase = 'Blok 4 • Taper & Race Week';
+        const t = w - 32;
+        targetKm = t === 1 ? 36 : t === 2 ? 28 : t === 3 ? 20 : 26;
+        lrKm = t === 1 ? 14 : t === 2 ? 10 : t === 3 ? 6 : 21.1;
+        thr = t === 4 ? 'RACE DAY: Half Marathon 21,1 km (< 2:00:00)' : '3 × 1 km @ 5:38/km';
+      }
+
+      const sessions = w === 1 ? [
+        { id: 'w1_wed', day: 'Rabu, 25 Nov', name: 'Easy Run (Selesai)', target: '6,02 km • 7:43/km • HR 148 bpm', type: 'easy', desc: 'Tercatat dari Strava pagi (05:46 WIB).' },
+        { id: 'w1_thu', day: 'Kamis, 26 Nov', name: 'Intro Threshold', target: '~5 km • 3×4 mnt @ 5:45–6:00/km', type: 'key', desc: 'Pemanasan 1,5 km easy, 3 × 4 menit @ 5:45–6:00/km (jeda jog 2 mnt), pendinginan ~1 km.' },
+        { id: 'w1_fri', day: 'Jumat, 27 Nov', name: 'Easy Recovery Run', target: '5 km • 7:45–8:10/km • HR < 150', type: 'easy', desc: 'Lari santai memulihkan otot setelah sesi Kamis.' },
+        { id: 'w1_sat', day: 'Sabtu, 28 Nov', name: 'Endurance Long Run', target: '12 km • 10 km easy + 2 km steady', type: 'key', desc: '10 km nyaman (7:20–7:45/km), 2 km terakhir naik ke 6:50–7:10/km bila kaki enak.' },
+        { id: 'w1_sun', day: 'Minggu, 29 Nov', name: 'Easy Shakeout Jog', target: '4 km • 7:50–8:20/km • Opsional Rest', type: 'easy', desc: 'Jog santai 4 km atau istirahat penuh bila pegal.' },
+        { id: 'w1_mon', day: 'Senin, 30 Nov', name: 'Rest Day Rutin', target: '0 km • Pemulihan Total', type: 'rest', desc: 'Hari libur lari wajib untuk regenerasi.' }
+      ] : [
+        { id: `w${w}_mon`, day: 'Senin', name: 'Rest Day Rutin', target: '0 km • Pemulihan Penuh', type: 'rest', desc: 'Libur lari rutin setiap Senin.' },
+        { id: `w${w}_tue`, day: 'Selasa', name: 'Easy Run + Strides', target: '5–6 km • 7:40–8:05/km + 4×20 dtk', type: 'easy', desc: 'Lari santai ditutup 4×20 detik strides rileks.' },
+        { id: `w${w}_wed`, day: 'Rabu', name: 'Rest / Core Mobility', target: '0 km • Stretching 20 Menit', type: 'rest', desc: 'Jeda tengah pekan sebelum threshold Kamis.' },
+        { id: `w${w}_thu`, day: 'Kamis', name: 'Threshold / Cruise', target: `6–8 km • ${thr}`, type: 'key', desc: `Pemanasan 1,5 km, sesi inti ${thr}, pendinginan 1 km.` },
+        { id: `w${w}_fri`, day: 'Jumat', name: 'Easy Recovery Run', target: '5 km • 7:45–8:10/km • HR < 150', type: 'easy', desc: 'Lari pemulihan berintensitas rendah.' },
+        { id: `w${w}_sat`, day: 'Sabtu', name: w === 36 ? 'RACE DAY: Half Marathon' : 'Long Run Progresif', target: `${lrKm} km • ${w === 36 ? 'Target < 2:00:00' : '7:10–7:40/km'}`, type: 'key', desc: w === 36 ? 'Eksekusi strategi pacing Sub-2 HM!' : `Ketahanan aerobik ${lrKm} km; 2–3 km akhir steady.` },
+        { id: `w${w}_sun`, day: 'Minggu', name: 'Easy Shakeout Jog', target: '4–5 km • 7:50–8:20/km', type: 'easy', desc: 'Jog sangat santai menutup pekan.' }
+      ];
+
+      weeks.push({ num: w, iso, title: `Minggu ${w} (${fmtShort(s)} – ${fmtShort(e)})`, short: `Mgg ${w}`, phase, targetKm, sessions });
     }
 
-    function setMode(mode) {
-      currentMode = mode;
-      document.getElementById('modeCurrent').classList.toggle('active', mode === 'current');
-      document.getElementById('modeWeekly').classList.toggle('active', mode === 'weekly');
-      document.getElementById('progLabel').textContent = mode === 'current' ? 'Progres Sisa Pekan Ini' : 'Progres Pola Standar';
+    // 2. State
+    const seedLogs = [
+      { id: 'st_1', date: '2026-11-25', type: 'Easy Run', dist: 6.02, durSec: 2787, paceSec: 463, avgHr: 148, maxHr: 160, rpe: '5 • Nyaman', gear: 'ASICS Novablast 5', note: 'Strava • GT 4', src: 'Strava' },
+      { id: 'st_2', date: '2026-11-20', type: 'Easy Run', dist: 6.00, durSec: 2863, paceSec: 477, avgHr: 147, maxHr: 153, rpe: '4 • Ringan', gear: 'ASICS Novablast 5', note: 'Strava • GT 4', src: 'Strava' },
+      { id: 'st_3', date: '2026-11-17', type: 'Tempo / HMP', dist: 5.02, durSec: 1848, paceSec: 368, avgHr: 164, maxHr: 179, rpe: '8 • Berat', gear: 'ASICS Novablast 5', note: 'Best 5K 6:08/km', src: 'Strava' },
+      { id: 'st_4', date: '2026-11-14', type: 'Long Run', dist: 14.12, durSec: 6298, paceSec: 446, avgHr: 150, maxHr: 163, rpe: '6 • Steady', gear: 'ASICS Novablast 5', note: 'Long run 14.1 km', src: 'Strava' }
+    ];
+
+    let st = JSON.parse(localStorage.getItem('sub2_minimal_v3') || 'null');
+    if (!st) {
+      st = { wkIdx: 0, done: { w1_wed: true }, notes: { w1_wed: '6.02 km @ 7:43/km' }, logs: seedLogs };
+      saveSt();
+    }
+
+    function saveSt() {
+      localStorage.setItem('sub2_minimal_v3', JSON.stringify(st));
+      refreshTopMetrics();
+    }
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2100);
+    }
+
+    // 3. Swipe & Page Navigation
+    let curPage = 0;
+    const pTitles = [
+      'Jadwal Latihan • Geser kiri/kanan',
+      'Log Detail & Import CSV Strava',
+      'Grafik Target vs Aktual',
+      'Simulasi Race Sub-2 HM'
+    ];
+
+    function switchPage(i) {
+      if (i < 0 || i > 3) return;
+      curPage = i;
+      document.querySelectorAll('.page').forEach((p, idx) => p.classList.toggle('active', idx === i));
+      document.querySelectorAll('.f-tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+      document.querySelectorAll('#swipeDots .s-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+      document.getElementById('pageIndicatorLabel').textContent = pTitles[i];
+      if (i === 2) renderComparison();
+      if (i === 3) renderSim();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    let sx = 0, sy = 0;
+    const sa = document.getElementById('swipeArea');
+    sa.addEventListener('touchstart', e => {
+      if (e.target.closest('.wk-pills') || e.target.closest('.bars-area') || e.target.tagName === 'INPUT') { sx = null; return; }
+      sx = e.changedTouches[0].screenX;
+      sy = e.changedTouches[0].screenY;
+    }, { passive: true });
+    sa.addEventListener('touchend', e => {
+      if (sx === null) return;
+      const dx = e.changedTouches[0].screenX - sx;
+      const dy = e.changedTouches[0].screenY - sy;
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+        if (dx < 0 && curPage < 3) switchPage(curPage + 1);
+        if (dx > 0 && curPage > 0) switchPage(curPage - 1);
+      }
+      sx = null;
+    }, { passive: true });
+
+    // 4. Week & Schedule Render
+    function renderPills() {
+      const box = document.getElementById('wkPills');
+      box.innerHTML = weeks.map((w, i) => `
+        <button class="wk-pill ${i === st.wkIdx ? 'active' : ''}" onclick="pickWeek(${i})">${w.short}</button>
+      `).join('');
+      const act = box.children[st.wkIdx];
+      if (act) act.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    function pickWeek(i) {
+      st.wkIdx = i;
+      saveSt();
+      renderPills();
       renderSchedule();
     }
 
-    function toggleDone(id) {
-      state.done[id] = !state.done[id];
-      saveState();
-      renderSchedule();
+    function stepWeek(d) {
+      const n = st.wkIdx + d;
+      if (n >= 0 && n < weeks.length) pickWeek(n);
     }
 
-    function updateNote(id, val) {
-      state.notes[id] = val;
-      saveState();
+    function toggleCheck(id) {
+      st.done[id] = !st.done[id];
+      saveSt();
+      renderSchedule();
+      toast(st.done[id] ? 'Selesai ✓' : 'Ceklis dibatalkan');
+    }
+
+    function editQuickNote(id, v) {
+      st.notes[id] = v;
+      saveSt();
+    }
+
+    function jumpToLog(name) {
+      switchPage(1);
+      const sel = document.getElementById('inType');
+      if (name.toLowerCase().includes('threshold')) sel.value = 'Intro Threshold';
+      else if (name.toLowerCase().includes('long')) sel.value = 'Long Run';
+      else if (name.toLowerCase().includes('recovery') || name.toLowerCase().includes('jog')) sel.value = 'Recovery Jog';
+      else sel.value = 'Easy Run';
+      document.getElementById('inDist').focus();
     }
 
     function renderSchedule() {
-      const list = plans[currentMode];
-      const container = document.getElementById('scheduleList');
-      let doneCount = 0;
-      container.innerHTML = list.map(item => {
-        const isDone = !!state.done[item.id];
-        if (isDone) doneCount++;
-        const noteVal = (state.notes[item.id] || '').replace(/"/g, '&quot;');
+      const wk = weeks[st.wkIdx];
+      document.getElementById('wkTitle').textContent = wk.title;
+      document.getElementById('wkPhase').textContent = `${wk.phase} • Target ${wk.targetKm} km`;
+      document.getElementById('prevWk').disabled = st.wkIdx === 0;
+      document.getElementById('nextWk').disabled = st.wkIdx === weeks.length - 1;
+
+      let doneCnt = 0;
+      document.getElementById('sessionContainer').innerHTML = wk.sessions.map(s => {
+        const isDone = !!st.done[s.id];
+        if (isDone) doneCnt++;
+        const nVal = (st.notes[s.id] || '').replace(/"/g, '&quot;');
+        const tagCls = s.type === 'key' ? 'pt-key' : s.type === 'rest' ? 'pt-rest' : 'pt-easy';
+        const tagLbl = s.type === 'key' ? 'Sesi Kunci' : s.type === 'rest' ? 'Rest' : 'Easy';
         return `
-          <div class="day-card ${isDone ? 'done' : ''}">
-            <div class="day-top">
+          <div class="sess-card type-${s.type} ${isDone ? 'done' : ''}">
+            <div class="sess-top">
               <div>
-                <div class="day-title">${item.day} — ${item.title}</div>
-                <div class="day-meta">${item.meta}</div>
+                <div class="sess-day-lbl">${s.day}</div>
+                <div class="sess-name">${s.name}</div>
+                <div class="sess-target">${s.target}</div>
               </div>
-              <span class="tag ${item.tagClass}">${item.tag}</span>
+              <span class="pill-tag ${tagCls}">${tagLbl}</span>
             </div>
-            <p class="day-desc">${item.desc}</p>
-            <div class="day-actions">
-              <button class="check-btn" onclick="toggleDone('${item.id}')">
-                ${isDone ? '✓ Selesai' : '○ Tandai Selesai'}
-              </button>
-              <input class="note-input" type="text" placeholder="Catat pace / HR aktual..." value="${noteVal}" oninput="updateNote('${item.id}', this.value)" />
+            <p class="sess-body">${s.desc}</p>
+            <div class="action-strip">
+              <button class="check-pill" onclick="toggleCheck('${s.id}')">${isDone ? '✓ Selesai' : '○ Ceklis'}</button>
+              <input class="note-pill-input" type="text" placeholder="Catatan cepat..." value="${nVal}" oninput="editQuickNote('${s.id}', this.value)" />
+              ${s.type !== 'rest' ? `<button class="log-shortcut" onclick="jumpToLog('${s.name}')">+ Log</button>` : ''}
             </div>
           </div>
         `;
       }).join('');
-      const pct = Math.round((doneCount / list.length) * 100);
-      document.getElementById('progPct').textContent = `${doneCount}/${list.length} (${pct}%)`;
-      document.getElementById('progFill').style.width = pct + '%';
+
+      // Update Ring
+      const pct = Math.round((doneCnt / wk.sessions.length) * 100);
+      const circ = 207.3;
+      document.getElementById('ringFg').style.strokeDashoffset = circ - (circ * pct) / 100;
+      document.getElementById('ringPctText').innerHTML = `${pct}%<span>pekan</span>`;
     }
 
-    function switchTab(tab, btn) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      document.getElementById('tab-' + tab).classList.add('active');
+    // 5. Log Detail + CSV Import
+    const parseDur = str => {
+      const p = String(str || '').trim().split(':').map(Number);
+      if (p.some(isNaN)) return 0;
+      if (p.length === 3) return p[0]*3600 + p[1]*60 + p[2];
+      if (p.length === 2) return p[0]*60 + p[1];
+      return p[0]*60;
+    };
+    const fmtPace = sec => (!sec || !isFinite(sec) || sec <= 0) ? '—' : `${Math.floor(sec/60)}:${String(Math.round(sec%60)).padStart(2,'0')}`;
+    const fmtDur = sec => {
+      const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = Math.round(sec%60);
+      return h > 0 ? `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}` : `${m}:${String(s).padStart(2,'0')}`;
+    };
+
+    function calcLivePace() {
+      const d = parseFloat(document.getElementById('inDist').value);
+      const s = parseDur(document.getElementById('inDur').value);
+      document.getElementById('livePaceText').textContent = (d > 0 && s > 0) ? `${fmtPace(s/d)} /km` : '— /km';
     }
 
-    function fmtTime(sec) {
-      const h = Math.floor(sec / 3600);
-      const m = Math.floor((sec % 3600) / 60);
-      const s = Math.round(sec % 60);
-      if (h > 0) return `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-      return `${m}:${String(s).padStart(2,'0')}`;
+    function submitRunLog(e) {
+      e.preventDefault();
+      const date = document.getElementById('inDate').value;
+      const type = document.getElementById('inType').value;
+      const dist = parseFloat(document.getElementById('inDist').value);
+      const durSec = parseDur(document.getElementById('inDur').value);
+      if (!date || !(dist > 0) || !(durSec > 0)) return;
+
+      st.logs.unshift({
+        id: 'man_' + Date.now(),
+        date, type,
+        dist: Math.round(dist * 100) / 100,
+        durSec,
+        paceSec: durSec / dist,
+        avgHr: parseInt(document.getElementById('inAvgHr').value) || null,
+        maxHr: parseInt(document.getElementById('inMaxHr').value) || null,
+        rpe: document.getElementById('inRpe').value,
+        gear: document.getElementById('inGear').value || 'ASICS Novablast 5',
+        note: document.getElementById('inNote').value.trim(),
+        src: 'Manual'
+      });
+      st.logs.sort((a, b) => b.date.localeCompare(a.date));
+      saveSt();
+      renderLogs();
+      e.target.reset();
+      document.getElementById('inDate').value = new Date().toISOString().slice(0, 10);
+      document.getElementById('inGear').value = 'ASICS Novablast 5';
+      document.getElementById('livePaceText').textContent = '— /km';
+      toast('Tersimpan ke jurnal ✓');
     }
 
-    function calcSplits() {
-      const mins = parseFloat(document.getElementById('targetMin').value) || 119.5;
-      const totalSec = mins * 60;
-      const paceSec = totalSec / 21.0975;
-      const pm = Math.floor(paceSec / 60);
-      const ps = Math.round(paceSec % 60);
-      const items = [
-        { k: 'Pace Rata-rata', v: `${pm}:${String(ps).padStart(2,'0')}/km` },
-        { k: 'Split 5 KM', v: fmtTime(paceSec * 5) },
-        { k: 'Split 10 KM', v: fmtTime(paceSec * 10) },
-        { k: 'Split 15 KM', v: fmtTime(paceSec * 15) },
-        { k: 'Split 20 KM', v: fmtTime(paceSec * 20) },
-        { k: 'Finish 21,1 KM', v: fmtTime(totalSec) }
-      ];
-      document.getElementById('splitGrid').innerHTML = items.map(i => `
-        <div class="split-box"><div class="k">${i.k}</div><div class="v">${i.v}</div></div>
-      `).join('');
+    function removeLog(id) {
+      st.logs = st.logs.filter(l => l.id !== id);
+      saveSt();
+      renderLogs();
+      toast('Log dihapus');
     }
 
-    function renderChart() {
-      const bars = [
-        { lbl: '2 Nov', km: 38.1, proj: false },
-        { lbl: '9 Nov', km: 20.2, proj: false },
-        { lbl: '16 Nov', km: 11.0, proj: false },
-        { lbl: '23 Nov', km: 32.0, proj: true },
-        { lbl: 'Des', km: 35.0, proj: true },
-        { lbl: 'Jan', km: 38.0, proj: true },
-        { lbl: 'Mar', km: 45.0, proj: true },
-        { lbl: 'Mei', km: 50.0, proj: true }
-      ];
-      const max = 55;
-      document.getElementById('volumeChart').innerHTML = bars.map(b => `
-        <div class="bar-col">
-          <div class="bar-num">${b.km}</div>
-          <div class="bar-stick ${b.proj ? 'proj' : ''}" style="height:${Math.round((b.km/max)*78)}px"></div>
-          <div class="bar-lbl">${b.lbl}</div>
+    function copyLastRun() {
+      if (!st.logs.length) return;
+      const l = st.logs[0];
+      const hr = l.avgHr ? ` | Avg HR ${l.avgHr} bpm${l.maxHr ? ` (Max ${l.maxHr})` : ''}` : '';
+      const txt = `Update Sesi (${l.date}) — ${l.type}: ${l.dist} km • ${fmtDur(l.durSec)} (${fmtPace(l.paceSec)}/km)${hr} | ${l.rpe}${l.note ? ` | ${l.note}` : ''}`;
+      navigator.clipboard.writeText(txt).then(() => toast('Laporan sesi di-copy! Siap paste'));
+    }
+
+    function renderLogs() {
+      document.getElementById('histCount').textContent = `${st.logs.length} sesi`;
+      document.getElementById('histList').innerHTML = st.logs.slice(0, 25).map(l => `
+        <div class="hist-item">
+          <div class="hist-top">
+            <span class="hist-title">${l.date} • ${l.type}</span>
+            <span class="hist-badge">${l.src}</span>
+          </div>
+          <div class="hist-stats">
+            <span>${l.dist.toFixed(2)} km</span>
+            <span>•</span>
+            <span>${fmtPace(l.paceSec)}/km</span>
+            <span>•</span>
+            <span>${fmtDur(l.durSec)}</span>
+            ${l.avgHr ? `<span>• ❤️ ${l.avgHr} bpm</span>` : ''}
+          </div>
+          <div class="hist-foot">
+            <span>${l.rpe}${l.note ? ` — ${l.note}` : ''}</span>
+            <button class="btn-ghost" style="padding:3px 9px;font-size:11px;" onclick="removeLog('${l.id}')">Hapus</button>
+          </div>
         </div>
       `).join('');
     }
 
-    // Service Worker & PWA Install Prompt
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
-      });
+    function parseCsvRow(row) {
+      const out = []; let cur = '', q = false;
+      for (let i = 0; i < row.length; i++) {
+        const c = row[i];
+        if (c === '"') { if (q && row[i+1] === '"') { cur += '"'; i++; } else q = !q; }
+        else if (c === ',' && !q) { out.push(cur); cur = ''; }
+        else cur += c;
+      }
+      out.push(cur);
+      return out;
     }
 
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.style.display = 'inline-block';
+    function importStravaCsv(ev) {
+      const f = ev.target.files[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = e => {
+        const lines = e.target.result.split(/
+?
+/).filter(x => x.trim());
+        if (lines.length < 2) return;
+        const h = parseCsvRow(lines[0]).map(x => x.trim());
+        const iType = h.indexOf('Activity Type'), iDate = h.indexOf('Activity Date'), iDesc = h.indexOf('Activity Description');
+        const iDist = h.indexOf('Distance'), iDistM = h.lastIndexOf('Distance.1'), iMove = h.indexOf('Moving Time');
+        const iHr = h.indexOf('Average Heart Rate'), iMaxHr = h.indexOf('Max Heart Rate'), iGear = h.indexOf('Activity Gear'), iId = h.indexOf('Activity ID');
+
+        const seen = new Set(st.logs.map(x => x.id));
+        let added = 0;
+        for (let i = 1; i < lines.length; i++) {
+          const c = parseCsvRow(lines[i]);
+          if (!(c[iType] || '').toLowerCase().includes('run')) continue;
+          const m = (c[iDesc] || '').match(/(\d{4}-\d{2}-\d{2})/);
+          let dt = m ? m[1] : '';
+          if (!dt && c[iDate]) { const p = new Date(c[iDate]); if (!isNaN(p)) dt = p.toISOString().slice(0, 10); }
+          if (!dt) continue;
+
+          const distKm = (iDistM > iDist && parseFloat(c[iDistM]) > 50) ? parseFloat(c[iDistM])/1000 : (parseFloat(c[iDist]) || 0);
+          const durSec = parseFloat(c[iMove]) || 0;
+          if (distKm <= 0.2 || durSec <= 30) continue;
+
+          const id = c[iId] ? `strava_${c[iId]}` : `strava_${dt}_${distKm.toFixed(2)}`;
+          if (seen.has(id)) continue;
+
+          const paceSec = durSec / distKm;
+          st.logs.push({
+            id, date: dt,
+            type: distKm >= 13 ? 'Long Run' : paceSec <= 390 ? 'Tempo / HMP' : 'Easy Run',
+            dist: Math.round(distKm * 100) / 100,
+            durSec: Math.round(durSec),
+            paceSec,
+            avgHr: parseFloat(c[iHr]) ? Math.round(parseFloat(c[iHr])) : null,
+            maxHr: parseFloat(c[iMaxHr]) ? Math.round(parseFloat(c[iMaxHr])) : null,
+            rpe: 'Strava CSV',
+            gear: c[iGear] || 'ASICS Novablast 5',
+            note: 'Import Strava',
+            src: 'Strava'
+          });
+          seen.add(id);
+          added++;
+        }
+        st.logs.sort((a, b) => b.date.localeCompare(a.date));
+        saveSt();
+        renderLogs();
+        document.getElementById('csvMsg').textContent = `✓ ${added} aktivitas lari baru berhasil digabung.`;
+        toast(`${added} sesi CSV digabung!`);
+      };
+      r.readAsText(f);
+    }
+
+    // 6. Target vs Actual Comparison
+    function weekActualKm(iso) {
+      const a = new Date(iso + 'T00:00:00'), b = new Date(a);
+      b.setDate(a.getDate() + 7);
+      let sum = 0;
+      st.logs.forEach(l => { const d = new Date(l.date + 'T00:00:00'); if (d >= a && d < b) sum += Number(l.dist) || 0; });
+      return Math.round(sum * 10) / 10;
+    }
+
+    function refreshTopMetrics() {
+      const curWk = weeks[st.wkIdx];
+      document.getElementById('hdrActualKm').textContent = `${weekActualKm(curWk.iso).toFixed(1)} km`;
+      document.getElementById('hdrRunCount').textContent = `${st.logs.length}`;
+      document.getElementById('hdrWeekTarget').textContent = `Target: ${curWk.targetKm} km`;
+    }
+
+    function renderComparison() {
+      const slice = weeks.slice(0, 12);
+      const max = 52;
+      document.getElementById('compBars').innerHTML = slice.map(w => {
+        const act = weekActualKm(w.iso);
+        const th = Math.max(8, Math.round((w.targetKm / max) * 95));
+        const ah = act > 0 ? Math.max(8, Math.round((act / max) * 95)) : 4;
+        const hit = act >= w.targetKm * 0.9;
+        return `
+          <div class="b-col">
+            <div class="b-num">${act > 0 ? act : '0'}/${w.targetKm}</div>
+            <div class="b-pair">
+              <div class="bar-t" style="height:${th}px"></div>
+              <div class="bar-a ${hit ? 'goal' : ''}" style="height:${ah}px"></div>
+            </div>
+            <div class="b-wk">${w.short}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 7. Race Simulator
+    let simMode = 'even';
+    function setSimStrat(m) {
+      simMode = m;
+      document.getElementById('btnEven').classList.toggle('active', m === 'even');
+      document.getElementById('btnNeg').classList.toggle('active', m === 'negative');
+      renderSim();
+    }
+    function updateSimSlider(v) {
+      document.getElementById('simMinLbl').textContent = `${parseFloat(v).toFixed(1)} menit`;
+      renderSim();
+    }
+    function renderSim() {
+      const mins = parseFloat(document.getElementById('simSlider').value) || 119.5;
+      const totSec = mins * 60;
+      const avgPace = totSec / 21.0975;
+      document.getElementById('simTimeBig').textContent = fmtDur(totSec);
+      document.getElementById('simPaceSub').textContent = `Pace Rata-rata ${fmtPace(avgPace)}/km • ${totSec < 7200 ? 'Sub-2 Tercapai ✓' : 'Di atas 2:00:00'}`;
+
+      const cps = [5, 10, 15, 20, 21.0975];
+      document.getElementById('simCheckpoints').innerHTML = cps.map((km, idx) => {
+        let p = avgPace, c = avgPace * km;
+        if (simMode === 'negative') {
+          if (km <= 10) { p = avgPace + 5; c = p * km; }
+          else if (km <= 15) { p = avgPace; c = (avgPace + 5)*10 + p*(km - 10); }
+          else {
+            const first15 = (avgPace + 5)*10 + avgPace*5;
+            p = (totSec - first15) / (21.0975 - 15);
+            c = first15 + p * (km - 15);
+          }
+        }
+        const fin = idx === cps.length - 1;
+        return `
+          <div class="cp-row ${fin ? 'finish' : ''}">
+            <span>${fin ? '🏁 Finish 21,1 KM' : `Checkpoint ${km} KM`}</span>
+            <span>${fmtPace(p)}/km • <strong>${fmtDur(c)}</strong></span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 8. PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    }
+    let defPrompt;
+    const instBtn = document.getElementById('installBtn');
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault(); defPrompt = e; instBtn.style.display = 'inline-block';
+    });
+    instBtn.addEventListener('click', async () => {
+      if (!defPrompt) return;
+      defPrompt.prompt(); await defPrompt.userChoice;
+      defPrompt = null; instBtn.style.display = 'none';
     });
 
-    installBtn.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      installBtn.style.display = 'none';
-    });
-
+    document.getElementById('inDate').value = new Date().toISOString().slice(0, 10);
+    renderPills();
     renderSchedule();
-    calcSplits();
-    renderChart();
+    renderLogs();
+    refreshTopMetrics();
+    renderSim();
   </script>
 </body>
 </html>
