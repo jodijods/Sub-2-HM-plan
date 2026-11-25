@@ -1,0 +1,25 @@
+{
+  "name": "Road to Sub-2 Half Marathon",
+  "short_name": "Sub-2 HM Plan",
+  "description": "Dashboard program latihan lari personal menuju Sub-2 Half Marathon Agustus 2027",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230f172a'/><circle cx='256' cy='256' r='190' fill='none' stroke='%2338bdf8' stroke-width='24'/><text x='50%25' y='46%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='110' fill='%23ffffff'>SUB 2</text><text x='50%25' y='64%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='56' fill='%2338bdf8'>21.1 KM</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230f172a'/><circle cx='256' cy='256' r='190' fill='none' stroke='%2338bdf8' stroke-width='24'/><text x='50%25' y='46%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='110' fill='%23ffffff'>SUB 2</text><text x='50%25' y='64%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='56' fill='%2338bdf8'>21.1 KM</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
